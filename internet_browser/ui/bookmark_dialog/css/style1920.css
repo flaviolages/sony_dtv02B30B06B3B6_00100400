@@ -1,0 +1,117 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body
+{		
+	font-size: 20pt;   
+    background: transparent ;
+}
+
+.td_img
+{
+  width: 60px;
+  height:64px;
+}
+
+.tb
+{
+   width:100%;
+   border:0;
+   align: center;
+   cellpadding: 0;
+   cellspacing: 8;
+}
+#tb_add_item
+{
+   height:584px;
+   background: url("../../../img/bookmark_dialog/bm_dlg_bg_3.png");
+}
+
+#tb_add_folder
+{
+   height:446px; 
+   background: url("../../../img/bookmark_dialog/bm_dlg_bg_1.png");
+}
+
+#tb_edit_item
+{
+   height:498px;
+   background: url("../../../img/bookmark_dialog/bm_dlg_bg_3.png");
+}
+
+#tb_edit_folder
+{
+   height:446px; 
+   background: url("../../../img/bookmark_dialog/bm_dlg_bg_1.png");
+}
+#tb_del_item
+{
+   height:498px;
+   background: url("../../../img/bookmark_dialog/bm_dlg_bg_3.png");
+}
+
+#tb_del_folder
+{
+   height:446px; 
+   background: url("../../../img/bookmark_dialog/bm_dlg_bg_1.png");
+}
+
+#dialog
+{	
+	margin: 10px auto;
+    width: 904px;   
+}
+
+#bookmarkTitle_ai, #bookmarkTitle_af, #bookmarkTitle_ei, #bookmarkUrl_ei, #bookmarkTitle_ef
+{
+    background: url("../../../img/bookmark_dialog/bm_dlg_editbox_field_n.png") no-repeat;
+}
+
+#bookmarkUrl_ai, #bookmarkTitle_di,  #bookmarkUrl_di, #bookmarkTitle_df
+{
+    background: url("../../../img/bookmark_dialog/bm_dlg_editbox_field_d.png") no-repeat;
+}
+
+#bookmarkTitle_ai, #bookmarkUrl_ai, #bookmarkTitle_ai, #bookmarkTitle_af, #bookmarkUrl_di, #bookmarkTitle_di, #bookmarkTitle_df, #bookmarkTitle_ei, #bookmarkUrl_ei, #bookmarkUrl_ef, #bookmarkTitle_ef
+{
+    
+	padding-right: 10px;
+    width: 700px;
+    height: 58px;
+	font-size: 20pt;
+    border: 0px;
+	overflow:hidden;
+}
+
+#bookmarkDest_ai
+{
+    padding: 10px;
+    width: 700px;
+	height: 58px;
+	font-size: 20pt;
+    border: 0px;
+	background-color:white;
+}
+
+#Submit, #Cancel
+{
+    width: 248px;
+	height: 92px;
+	margin: 0 0;
+	padding: 0px;
+	border:0px;
+        font-size: 20pt;
+	color:white;
+	background: url("../../../img/bookmark_dialog/bm_dlg_button_n.png") no-repeat;
+}
+
+#Submit:hover, #Cancel:hover
+{
+    //background: url("../../../img/bookmark_dialog/bm_dlg_button_hi.png") no-repeat;
+}
+
+td
+{
+    color: white;
+}

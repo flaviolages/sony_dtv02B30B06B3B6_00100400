@@ -1,0 +1,121 @@
+<!-- Copyright 2014 Sony Corporation -->
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <!-- no cache  -->
+        <meta http-equiv='cache-control' content='no-cache'>
+        <meta http-equiv='expires' content='0'>
+        <meta http-equiv='pragma' content='no-cache'>
+        <!-- ends -->
+        <title langcode="80409">Photo Sharing Plus</title>
+        <link href="css/ps-stylesheet.css" rel="stylesheet" media="screen" type="text/css">
+        <script type="text/javascript" src="js/PartyShareMultilanguageSupport.js"></script>
+        <script type="text/javascript" src="js/PartyShareFileUpload.js"></script>
+        <script type="text/javascript" src="js/vendor/jquery.min.js"></script>
+        <script type="text/javascript" src="js/PartyShareSetNickName.js"></script>
+        <script type="text/javascript" src="js/vendor/uuid.js"></script>
+        <script type="text/javascript" src="js/PartyShareErrorMessage.js"></script>
+        <script type="text/javascript" src="js/vendor/HashTable.js"></script>
+        <script type="text/javascript" src="js/PartyShareCommonFunctions.js"></script>
+        <script type="text/javascript" src="js/PartyShareAjaxConnection.js"></script>
+        <script type="text/javascript" src="js/PartyShareControlXscript.js"></script>
+        <script type="text/javascript" src="js/PartyShareControlUI.js"></script>
+        <script type="text/javascript" src="js/PartyShareMonitoringScript.js"></script>
+        <script type="text/javascript">
+            function gotoTimeline() {
+                var nameObject = $('#name')[0];
+                if (validateNickNameBlank(nameObject)) {
+                    setNickName(nameObject.value);
+                    setNickNameEdited(true);
+                }
+                var location = "tl.html";
+                self.location = location;
+            }
+        </script>
+    </head>
+
+    <body onload="avoidReturnPrePage();
+                checkOrientation(false);
+                startMonitorEvent(0);
+                GetNetworkName();">
+        <div id="DyanamicLandscapDiv"></div>
+        <div id="mainDivId">
+            <div id="DyanamicInputDiv"></div>
+            <div class="loaderpop" id="loader">
+                <div class="loaderpopupContent">
+                    <img id="loading" src="images/arr2.png" class="loadingImg" />
+                </div>
+            </div>
+            <div id="mainContainer">
+                <!-- Initial Screen Starts -->
+                <div class="initialContainer">
+                    <div  class = "initialBackground"></div>
+                    <div  class = "initialLogo">
+                        <div class="logoIconDiv">
+                            <img src="images/logoIcon.png" class="logoIcon"/>
+                        </div>
+                        <div class="logoDiv">
+                            <span class="logo" langcode="80409">Photo Sharing Plus</span>
+                        </div>
+                    </div>
+                    <div id="initialLogin">
+                        <input type="text" value="Enter your nickname" name="nameId" id="name" maxlength="25" class="logintextBox" onFocus="this.value = '';
+                return false;" onblur="validateUserNickName(this)" langcode="64342" />
+                        <div class="initialTextContainer">
+                            <aside class="initialText" langcode="64343">Input your nick name and push below button to start photo share</aside>
+                        </div>
+                        <div class="clearBoth"></div>
+                        <!-- Share Button Starts -->
+                        <div id="startBtnContainer">
+                            <div id="startbtn" name="" type="button" value="Start" class="Btn" onclick="gotoTimeline();" langcode="52" >Start</div>
+                        </div>
+                        <div class="clearBoth"></div>
+                        <!-- Share Button Ends -->
+                    </div>
+                </div>
+                <!-- Initial Screen Ends -->
+            </div>
+        </div>
+        <script>
+            getLaunguageCode();
+            $(document).ready(function() {
+                /* function to setBackgroundImg of backgroud */
+                setTimeout(function(){
+                    var screenH = window.innerHeight * 0.48;
+                    $('.initialBackground').height(screenH);
+                }, 250);
+                window.onresize = function() {
+                    if (android) {
+                        var is_chrome = navigator.userAgent.indexOf('Chrome') > -1;
+                        var is_firefox = navigator.userAgent.indexOf('Firefox') > -1;
+                        if (is_chrome || is_firefox) {
+                            if ($(window).height() < 1146 && $(window).width() >= 800) {
+                                $('.initialLogo').css({height:'14%',bottom:'60%'});
+                                $('.initialBackground').css({bottom:'70%'});
+                            } else if ($(window).height() < 600 && $(window).width() >= 400) {
+                                $('.initialLogo').css({height:'18%',bottom:'72%'});
+                                $('.initialBackground').css({bottom:'90%'});
+                            }
+                            else if ($(window).height() < 300 && $(window).width() > 320) {
+                                $('.initialLogo').css({height:'20%', bottom:'85%'});
+                                $('.initialBackground').css({bottom:'90%'});
+                            } else if ($(window).height() < 400 && $(window).width() > 320) {
+                                $('.initialLogo').css({height:'15%', bottom:'60%'});
+                                $('.initialBackground').css({bottom:'65%'});
+                            } else {
+                                $('.initialLogo').css({height:'10%', bottom:'42%'});
+                                $('.initialBackground').css({bottom:'52%'});
+                            }
+                            //alert($(window).height() + ', ' + $(window).width());
+                        }
+                    }
+                };
+            });
+        </script>
+    </body>
+
+</html>

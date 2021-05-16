@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+    <title>Online Keyboard</title>
+    <link rel="stylesheet" type="text/css" href="css/style1920.css"  id="cssid"/>
+	<script language="JavaScript">
+	function init() {
+	
+	var css=document.getElementById("cssid");
+	   if(1920 == document.documentElement.clientWidth )
+	   {
+	      //document.getElementById("container").style.width = 1430 + "px";
+		  //document.getElementById("container").style.height = 490 + "px";
+		  css.setAttribute("href","css/style1920.css");
+	   }
+	   else if(960 == document.documentElement.clientWidth)
+	   {
+	      //document.getElementById("container").style.width = 715 + "px";
+		  //document.getElementById("container").style.height = 245 + "px";
+		  css.setAttribute("href","css/style960.css");
+	   }
+	  
+	}
+	</script>
+</head>
+<body onload="init();">
+<div id="container">
+    <object type="application/opera-controller" id="operaController"></object>
+    <input id="write" type="text"></input>
+    <ul id="keyboard" onmousedown="return false;">
+        <li class="symbol firstitem"><span class="off">`</span><span class="on">~</span></li>
+        <li class="symbol"><span class="off">1</span><span class="on">!</span></li>
+        <li class="symbol"><span class="off">2</span><span class="on">@</span></li>
+        <li class="symbol margindiff"><span class="off">3</span><span class="on">#</span></li>
+        <li class="symbol"><span class="off">4</span><span class="on">$</span></li>
+        <li class="symbol"><span class="off">5</span><span class="on">%</span></li>
+        <li class="symbol"><span class="off">6</span><span class="on">^</span></li>
+        <li class="symbol"><span class="off">7</span><span class="on">&amp;</span></li>
+        <li class="symbol"><span class="off">8</span><span class="on">*</span></li>
+        <li class="symbol"><span class="off">9</span><span class="on">(</span></li>
+        <li class="symbol"><span class="off">0</span><span class="on">)</span></li>
+        <li class="symbol"><span class="off">-</span><span class="on">_</span></li>
+        <li class="symbol"><span class="off">=</span><span class="on">+</span></li>
+        <li class="delete lastitem">Back</li>
+        <li class="tab firstitem">Tab</li>
+        <li class="letter">q</li>
+        <li class="letter">w</li>
+        <li class="letter">e</li>
+        <li class="letter margindiff">r</li>
+        <li class="letter">t</li>
+        <li class="letter">y</li>
+        <li class="letter">u</li>
+        <li class="letter">i</li>
+        <li class="letter">o</li>
+        <li class="letter">p</li>
+        <li class="symbol"><span class="off">[</span><span class="on">{</span></li>
+        <li class="symbol"><span class="off">]</span><span class="on">}</span></li>
+        <li class="symbol lastitem"><span class="off">\</span><span class="on">|</span></li>
+        <li class="capslock firstitem">Caps L</li>
+        <li class="letter">a</li>
+        <li class="letter">s</li>
+        <li class="letter">d</li>
+        <li class="letter  margindiff">f</li>
+        <li class="letter">g</li>
+        <li class="letter">h</li>
+        <li class="letter">j</li>
+        <li class="letter">k</li>
+        <li class="letter">l</li>
+        <li class="symbol"><span class="off">;</span><span class="on">:</span></li>
+        <li class="symbol"><span class="off">'</span><span class="on">&quot;</span></li>
+        <li class="return lastitem">Enter</li>
+        <li class="left-shift firstitem" >Shift</li>
+        <li class="letter">z</li>
+        <li class="letter">x</li>
+        <li class="letter">c</li>
+        <li class="letter margindiff">v</li>
+        <li class="letter">b</li>
+        <li class="letter">n</li>
+        <li class="letter">m</li>
+        <li class="symbol"><span class="off">,</span><span class="on">&lt;</span></li>
+        <li class="symbol"><span class="off">.</span><span class="on">&gt;</span></li>
+        <li class="symbol"><span class="off">/</span><span class="on">?</span></li>
+        <li class="space">Space</li>
+        <li class="quickkey firstitem">http://</li>
+        <li class="quickkey">www.</li>
+        <li class="quickkey">.com</li>
+        <li class="quickkey">.org</li>
+        <li class="quickkey">.gov</li>
+        <li class="quickkey">.net</li>
+        <li class="reset">Reset</li>        
+    </ul>
+</div>
+
+<script type="text/javascript" src="../js/jquery.min.js"></script>
+<script type="text/javascript" src="../js/keyboard.js"></script>
+
+</body>
+</html>

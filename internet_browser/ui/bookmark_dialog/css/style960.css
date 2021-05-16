@@ -1,0 +1,117 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body
+{		
+	font-size: 10pt;  
+	 background-color: transparent; 
+ 
+}
+
+.td_img
+{
+  width: 30px;
+  height:32px;
+}
+
+.tb
+{
+   width:100%;
+   border:0;
+   align: center;
+   cellpadding: 0;
+   cellspacing: 4;
+}
+#tb_add_item
+{
+   height:292px;
+   background: url("../../../img/bookmark_dialog/bm_dlg_bg_3.png");
+}
+
+#tb_add_folder
+{
+   height:223px; 
+   background: url("../../../img/bookmark_dialog/bm_dlg_bg_1.png");
+}
+
+#tb_edit_item
+{
+   height:249px;
+   background: url("../../../img/bookmark_dialog/bm_dlg_bg_3.png");
+}
+
+#tb_edit_folder
+{
+   height:223px; 
+   background: url("../../../img/bookmark_dialog/bm_dlg_bg_1.png");
+}
+#tb_del_item
+{
+   height:249px;
+   background: url("../../../img/bookmark_dialog/bm_dlg_bg_3.png");
+}
+
+#tb_del_folder
+{
+   height:223px; 
+   background: url("../../../img/bookmark_dialog/bm_dlg_bg_1.png");
+}
+
+#dialog
+{	
+	margin: 5px auto;
+    width: 452px;   
+}
+
+#bookmarkTitle_ai, #bookmarkTitle_af, #bookmarkTitle_ei, #bookmarkUrl_ei, #bookmarkTitle_ef
+{
+    background: url("../../../img/bookmark_dialog/bm_dlg_editbox_field_n.png") no-repeat;
+}
+
+#bookmarkUrl_ai, #bookmarkTitle_di,  #bookmarkUrl_di, #bookmarkTitle_df
+{
+    background: url("../../../img/bookmark_dialog/bm_dlg_editbox_field_d.png") no-repeat;
+}
+
+#bookmarkTitle_ai, #bookmarkUrl_ai, #bookmarkTitle_ai, #bookmarkTitle_af, #bookmarkUrl_di, #bookmarkTitle_di, #bookmarkTitle_df, #bookmarkTitle_ei, #bookmarkUrl_ei, #bookmarkUrl_ef, #bookmarkTitle_ef
+{
+    
+	padding-right: 5px;
+    width: 350px;
+    height: 29px;
+	font-size: 10pt;
+    border: 0px;
+	overflow:hidden;
+}
+
+#bookmarkDest_ai
+{
+    padding: 5px;
+    width: 350px;
+	height: 29px;
+	font-size: 10pt;
+    border: 0px;
+	background-color:white;
+}
+
+#Submit, #Cancel
+{
+    width: 124px;
+	height: 46px;
+	margin: 0 0;
+	padding: 0px;
+	border:0px;
+	color:white;
+	background: url("../../../img/bookmark_dialog/bm_dlg_button_n.png") no-repeat;
+}
+
+#Submit:hover, #Cancel:hover
+{
+    //background: url("../../../img/bookmark_dialog/bm_dlg_button_hi.png") no-repeat;
+}
+
+td
+{
+    color: white;
+}

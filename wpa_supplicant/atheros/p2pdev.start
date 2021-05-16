@@ -1,0 +1,2 @@
+./wpa_supplicant -Dathr -iwlan1 -c p2pdev.conf &
+exit 1

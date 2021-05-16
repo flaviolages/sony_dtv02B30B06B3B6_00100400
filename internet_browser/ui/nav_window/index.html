@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE
+ html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+ "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!--
+This is an Opera navigation bar written with XHTML, CSS and Javascript
+which tries to mimic desktop Opera as far as possible.
+Features:
+ * Double-clicking the Opera icon directs the browser to www.opera.com
+ * The forward/backward buttons are enabled/disabled depending on
+   the contents of page history.
+ * The reload-button turns into a stop-button when a page is loading.
+ * The addressbar has a favicon.
+ * Clicking the x-button exits Opera.
+-->
+<html>
+	<head>
+		<title>Navigation controller</title>
+		<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+		<link rel="stylesheet" type="text/css" href="style1920.css" id="cssid"/>
+		<script type="text/javascript" src="nav_window.js"></script>
+		<script type="text/javascript">
+		//<![CDATA[
+		
+		
+		//]]>
+		</script>
+	</head>
+	<body onload="init();">
+		<!-- Instantiate the Opera controller plugin. -->
+		<p><object type="application/opera-controller" id="operaController"></object></p>
+		
+		<img id="naviBg" src="../../img/nav_window/brs_navi_bar.png" />
+		
+		<!--<img id="addressBg1" src="brs_navi_address_field_1.png" />
+		<img id="addressBg2" src="brs_navi_address_field_2.png" />
+		<img id="addressBg3" src="brs_navi_address_field_3.png" />-->
+
+		<!-- Add an Opera logo in the top left corner.
+		When double-clicked, the browsers goes to www.opera.com.  -->
+		<div class="button" id="greatWeb" onclick="operaController.showGreatSite('SHOW');"></div>
+
+		<!-- Add a couple of buttons which use a JS Plugin called
+		operaController (from the controller.so file) in order to
+		communicate with the Opera integration.  -->
+
+		<!-- The back and forward navigation buttons can are disabled when
+		history doesn't allow navigation. Use separate elements for the
+		disabled button and the active button, showing only of them. -->
+		
+		
+		<div class="button" id="backDisabled"></div>
+		<div class="button" id="back" onclick="operaController.back();"></div>
+
+		<div class="button" id="fwdDisabled"></div>
+		<div class="button" id="fwd" onclick="operaController.forward();"></div>
+		<div class="button" id="reload" onclick="operaController.reload();"></div>
+		<div class="button" id="stop" onclick="operaController.stop();"></div>
+		<div class="button" id="showBookmark" onclick="operaController.showBookmarkManager('SHOW');"></div>
+		<div class="button" id="addToBookmarkDisabled"></div>
+		<div class="button" id="addToBookmark" onclick="addToBookmark(this)"></div>
+
+		<form action="#" onsubmit="return operaController.openUrl(this.addressbar.value);">
+			<p>
+			    <img id="addressBg1" src="../../img/nav_window/brs_navi_address_field_1.png" />
+	<input type="text" id="addressbar" name="address" onfocus="this.select();"></input>
+	<img id="icon_place" src="../../img/nav_window/brs_SLL_icon.png"/>
+				<img id="addressBg3" src="../../img/nav_window/brs_navi_address_field_3.png" />
+			</p>
+		</form>
+
+		<!-- Add an image. When you click on it, it opens a control
+		URL which makes Opera exit. Uses external protocol handlers instead
+		of a JS Plugin to communicate to the opera integration. -->
+		<div class="button" id="goTo"  onclick="goTo();"></div>
+		<div class="button" id="goToDisable"></div>
+		<!--<div class="button" id="close" onclick="operaController.exit();"></div>-->
+		<script type="text/javascript">
+		setMouseEvent();
+		//setFocusEvent();
+		</script>
+	</body>
+</html>

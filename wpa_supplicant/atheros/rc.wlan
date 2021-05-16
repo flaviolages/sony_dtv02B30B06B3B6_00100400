@@ -1,0 +1,13 @@
+#!/bin/sh
+#
+MODULE_PATH=/basic/mt5396
+insmod $MODULE_PATH/adf.ko
+insmod $MODULE_PATH/asf.ko
+insmod $MODULE_PATH/ath_hif_usb.ko
+insmod $MODULE_PATH/ath_htc_hst.ko
+insmod $MODULE_PATH/ath_hal.ko
+insmod $MODULE_PATH/ath_dfs.ko
+insmod $MODULE_PATH/ath_rate_atheros.ko
+insmod $MODULE_PATH/ath_dev.ko
+insmod $MODULE_PATH/umac.ko
+insmod $MODULE_PATH/ath_usbdrv.ko

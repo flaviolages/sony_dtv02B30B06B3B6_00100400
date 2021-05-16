@@ -1,0 +1,136 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body
+{
+ background-color: transparent
+}
+
+#container
+{
+    margin: 0px auto;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    width: 715px;
+	    font: 1em/1.5 Sans-Serif;
+    font-weight:bold;
+	height:245px;
+	background: transparent url("../../../img/sw_kb/keyboard_bg.png") no-repeat;
+}
+#write
+{
+    margin: 9px 0 14px 26px;
+    padding: 5px;
+    width: 600px;
+    height: 20px;
+    font: 1em/1.5 Sans-Serif;
+	color:#ffffff;
+	background-color:transparent;
+    border-style: none;
+    font-weight: bold;
+	overflow:hidden;
+}
+#keyboard
+{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+	
+}
+#keyboard li
+{
+    float: left;
+    margin: 0 1px 3px 0;
+    width: 46px;
+    height: 34px;
+    line-height: 34px;
+    text-align: center;
+    color: #ffffff;
+
+} 
+
+#keyboard .margindiff
+{
+   margin: 0 2px 3px 0;
+}
+
+#keyboard .capslock, #keyboard .tab, #keyboard .left-shift
+{
+    clear: left;
+}
+#keyboard .quickkey
+{
+    width: 95px;
+	height:33px;
+	margin:0 2px 0 0;
+
+}
+
+#keyboard .tab, #keyboard .delete
+{
+    width: 73px;
+}
+#keyboard .capslock,#keyboard .return
+{
+    width: 84px;
+}
+
+#keyboard .left-shift,#keyboard .reset
+{
+    width: 100px;
+}
+#keyboard .space
+{
+    width: 113px;
+}
+
+#keyboard .firstitem
+{
+    margin-left: 15px;
+}
+#keyboard .uppercase
+{
+    text-transform: uppercase;
+}
+
+#keyboard .on
+{
+    display: none;
+}
+#keyboard li:hover
+{
+
+    border-color: #e5e5e5;
+    color: #ffffff;
+    background:url("../../../img/sw_kb/keyboard_key_1.png") no-repeat;
+    cursor: pointer;
+}
+
+#keyboard .quickkey:hover
+{
+    background: url("../../../img/sw_kb/keyboard_key_5_bottom.png") no-repeat;
+}
+
+#keyboard .tab:hover, #keyboard .delete:hover
+{
+    background: url("../../../img/sw_kb/keyboard_key_2.png") no-repeat;
+}
+
+#keyboard .capslock:hover,#keyboard .return:hover
+{
+    background: url("../../../img/sw_kb/keyboard_key_3.png") no-repeat;
+}
+
+#keyboard .left-shift:hover,#keyboard .reset:hover
+{
+    background: url("../../../img/sw_kb/keyboard_key_4.png") no-repeat;
+}
+
+#keyboard .space:hover
+{
+    background: url("../../../img/sw_kb/keyboard_key_5.png") no-repeat;
+}

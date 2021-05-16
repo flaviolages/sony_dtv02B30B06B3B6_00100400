@@ -1,0 +1,64 @@
+<!doctype html>
+<title>IME example</title>
+<style>
+body, html {
+  margin: 0;
+  overflow: hidden;
+}
+div {
+  width: 200px;
+  height: 100px;
+  text-align: center;
+  background-color: lightgray;
+  -webkit-border-radius: 8px 8px 8px 8px;
+  border: 1px solid black;
+  padding: 10px 10px 10px 10px;
+  box-sizing: border-box;
+}
+</style>
+<script>
+window.VK_DOWN = window.VK_DOWN || 40;
+window.VK_UP = window.VK_UP || 38;
+
+function sendCommand(cmd, args) {
+  var cmdstr = cmd;
+  if (args) {
+    for (var k in args)
+      if (args.hasOwnProperty(k))
+        cmdstr = cmdstr + ";" + args[k];
+  }
+
+  if (window.opera_omi && opera_omi.sendPlatformMessage)
+    opera_omi.sendPlatformMessage(cmdstr)
+  else
+    alert(cmdstr);
+}
+
+window.onload = function() {
+  document.querySelector("input").focus();
+}
+
+window.addEventListener("keydown", function(e) {
+  var focusable = Array.apply(null, document.querySelectorAll("[tabindex]"));
+  var currentIndex = focusable.indexOf(document.activeElement);
+  switch (e.keyCode) {
+    case VK_DOWN:
+      focusable[currentIndex<focusable.length-1?++currentIndex:currentIndex].focus();
+      e.preventDefault();
+      e.stopPropagation();
+      break;
+    case VK_UP:
+       focusable[currentIndex>0?--currentIndex:currentIndex].focus();
+       e.preventDefault();
+       e.stopPropagation();
+       break;
+  }
+}, false);
+
+</script>
+<div>
+  <input id="text" type="text" value="" tabindex="1"></input>
+  <button onclick='sendCommand("commit-ime", [document.querySelector("input").value, "false"] )' tabindex="2">Commit IME</button>
+  <button onclick='sendCommand("commit-ime", [document.querySelector("input").value, "true"]  )' tabindex="3">Submit IME</button>
+  <button onclick='sendCommand("cancel-ime")' tabindex="4">Cancel IME</button>
+</div>

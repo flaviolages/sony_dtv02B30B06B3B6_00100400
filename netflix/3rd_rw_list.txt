@@ -1,0 +1,17 @@
+#
+# 1. data:
+#       - copy these files the the output/[rel/debug]/3rd_rw/
+#       - create a symbolic link from output/[rel/debug]/3rd/ to /3rd_rw
+# 2. link-dir:
+#       - mkdir in output/[rel/debug]/3rd_rw/
+#       - create a symbolic link from output/[rel/debug]/3rd/ to /3rd_rw
+# 3: link-file:
+#       - create a symbolic link from output/[rel/debug]/3rd/ to /3rd_rw
+#data,       netflix/nrd-app/data
+link-dir,       netflix/nrd-app/data/var/nrd
+link-dir,       netflix/nrd-app/data/var/tiles
+#data,           netflix/nrd-app/data/var/tiles/splash-catalog
+link-dir,       netflix/nrd-app/data/cache
+link-dir,       netflix/nrd-app/data/var/cache
+link-dir,       netflix
+link-dir,       netflix/nrd-app/data/oom

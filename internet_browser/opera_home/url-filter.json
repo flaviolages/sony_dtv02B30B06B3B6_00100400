@@ -1,0 +1,17 @@
+[
+  {
+    "allow_urls": [
+      "file:///cache/bravia-2k-shopdemo/*"
+    ]
+  },
+  {
+    "deny_urls": [
+      "file:///*"
+    ]
+  },
+  {
+    "allow_urls": [
+      "<all_urls>"
+    ]
+  }
+]

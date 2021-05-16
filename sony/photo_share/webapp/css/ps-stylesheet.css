@@ -1,0 +1,3055 @@
+/*
+ * Copyright 2014 Sony Corporation
+ */
+
+html,body{
+    paddininitial-bkg: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
+
+body>div {
+    -webkit-transition: all 1s ease-in-out;
+}
+
+body {
+    background: #040404;
+    color: #ffffff;
+    font-family: Arial;
+    font-weight: normal;
+    font-style: normal;
+    line-height: 1;
+    position: relative;
+    cursor: default;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    width: 100%;
+    height: 100%;
+}
+/* masonry styles - start */
+.masonry {
+    margin: 0 auto;
+}
+
+.masonry .item {
+    float: left;
+    width: 50%;
+    word-wrap: break-word;
+    border: 0px solid #333;
+    border-color: #C0C0C0;
+    /*border-color: hsla(0, 0%, 0%, 0.5);
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background:white;*/
+    text-align: left !important;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+}
+
+.imgItem {
+    width:100%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    border-radius: 5px 5px 0px 0px;
+}
+
+.itemTemp {
+    width:96%;
+    left: 0px;
+    right: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5px 5px 5px 5px;
+    border: 2px solid #d3d3d3;
+}
+
+.itemTemp2 {
+    width:100%;
+    padding-top: 3%;
+}
+.masonry .previewClass {
+    width:98%;
+    height:200px;
+    border: 1px solid #333;
+    border-color: #00FFFF;
+}
+
+div.opBottom {
+    position:relative;
+    background: white;
+    height:40px;
+    border-radius: 0px 0px 5px 5px;
+    padding-top: 3%;
+}
+div.emptyBottom {
+    position:relative;
+    background: white;
+    height:10px;
+    border-radius: 0px 0px 5px 5px;
+}
+
+div.zoom{
+    position:relative;
+    height: 80%;
+}
+
+div.divNickName{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-left: 3%;
+    padding-left: 3%;
+    line-height: 2.5;
+}
+
+img.imgAnimal {
+    height:80%;
+    float:left;
+    padding-left:3%;
+}
+
+img.imgRotate {
+    height:80%;
+    float:right;
+    padding-right:3%;
+    /*margin-top:1%;*/
+}
+img.imgIconTV {
+    position:absolute;
+    width:15%;
+    top:5px;
+    left: 5px;
+}
+div.emptyDiv {
+    width:100%;
+    height:100px;
+    background-color: 'transparent';
+}
+div.videoUI{
+    position:relative;
+    background:gray;
+    height: 80%;
+}
+div.playIcon{
+    position:absolute;
+    top: 25%;
+    left:20%;
+    width:60%;
+}
+
+.playIconUI{
+    position:absolute;
+    left:0;
+    right:0;
+    width: 25%;
+    top:0;
+    bottom:0;
+    margin:auto;
+}
+/* masonry styles - end */
+body,a,p,div,h1,h2,h3,h4,h5,h6,input,select,fieldset,span,ul,ol,li,img
+{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: none;
+    text-decoration: none;
+}
+
+a:active {
+    text-decoration: none;
+}
+
+a:hover {
+    cursor: pointer;
+    text-decoration: none;
+}
+
+a:focus {
+    outline: none;
+}
+
+img,object,embed {
+    border: none;
+}
+
+object,embed {
+    height: 100%;
+}
+
+.left {
+    float: left !important;
+}
+
+.right {
+    float: right !important;
+    width:auto;
+    height: 100%;
+    margin-right:10%;
+}
+
+.text-left {
+    text-align: left !important;
+}
+
+.text-right {
+    text-align: right !important;
+}
+
+.text-center {
+    text-align: center !important;
+}
+
+.text-justify {
+    text-align: justify !important;
+}
+
+.hide {
+    display: none;
+}
+
+
+/**** COMMON CSS STARTS ****/
+.clearBoth {
+    clear: both;
+    height: 10%;
+}
+
+.space {
+    clear: both;
+    height: 2px;
+}
+
+.padding-TR {
+    padding: 3% 3% 0 0;
+}
+
+img.optBtn {
+    height: 100%;
+    width:auto;
+    position: absolute;
+    right:10%;
+}
+img.addBtn {
+    left: 0px;
+    right: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    position: absolute;
+    bottom: 0px;
+    height: 130%;
+    width:auto;
+}
+img.mscBtn {
+    height: 100%;
+    width:auto;
+    position: absolute;
+    left:10%;
+}
+div.footerBackgroud {
+    width:100%;
+    height:10%;
+    background:#f3f3f3;
+    opacity:0.85;
+    position:absolute;
+    bottom:0px;
+    z-index:7;
+    -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+    -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+}
+div.footerContent {
+    width:100%; height:10%;
+    background:transparent;
+    position:absolute;
+    bottom:0px;
+    z-index:8;
+}
+div .invitationIcon{
+    height:11%;
+    width: 11%;
+    position:absolute;
+    bottom:12%;
+    left: 87%;
+    z-index:7;
+}
+div .invitationIcon :active{
+    opacity: 0.8;
+}
+#mainDivId {
+    width: 100%;
+    height: 100%;
+    /*    position: fixed; */
+    background: rgb(219,219,219);
+
+}
+
+#mainContainer {
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    overflow: hidden;
+}
+
+.Btn {
+    font-weight: normal !important;
+    /*    padding-left: 3% !important;
+        padding-right: 3% !important; */
+    padding-top: 9%;
+    padding-bottom: 9%;
+    text-align: center;
+    float: left;
+    color: #ffffff;
+    border-radius: 0.3em !important;
+    background-color: #6093be;
+    width: auto;
+    clear: both;
+    font-size: 100%;
+}
+
+.Btn:active {
+    color: #fff;
+    opacity: 0.8;
+}
+
+#startbtn {
+    font-size: 120% !important;
+}
+#startbtn:hover {
+    color: #fff;
+    opacity: 0.8;
+}
+
+.fullBk{
+    width: 100%;
+    height: 100%;
+}
+
+.commonBk {
+    background-size: 100% 100%;
+    width: 100%;
+    height: 99.9%;
+    background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0.31, rgb(219,219,219)),color-stop(0.66, rgb(219,219,219)),color-stop(0.83, rgb(219,219,219)));
+}
+.commonFooter {
+    height: 18% !important;
+    background: -webkit-gradient(linear, left top, left bottom, from(transparent),
+        to(#040404));
+    background: -moz-linear-gradient(top, #040404, transparent);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#040404',
+        endColorstr='transparent');
+    position: absolute;
+    bottom: -1.5% !important;
+    width: 99.8%;
+}
+/**** COMMON CSS ENDS ****/
+
+
+/**** LOADER STARTS ****/
+.loaderpop {
+    width: 100%;
+    display: none;
+    z-index: 9;
+    margin: 0 !important;
+    position: absolute;
+    padding: 0 !important;
+}
+
+.loaderpop .loaderpopupContent {
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 3em;
+    margin-top: 60%;
+}
+
+.loadingImg {
+    width: 100%;
+    padding: 0;
+    margin: 0 auto;
+}
+
+#loading
+{
+    animation-name: myfirst;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-play-state: running;
+
+    -moz-animation-name: myfirst;
+    -moz-animation-duration: 1s;
+    -moz-animation-timing-function: linear;
+    -moz-animation-iteration-count: infinite;
+    -moz-animation-play-state: running;
+
+    -webkit-animation-name: myfirst;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-play-state: running;
+}
+
+@keyframes myfirst{
+    from {transform:rotate(0deg);}
+to {transform:rotate(360deg);}
+}
+
+@-moz-keyframes myfirst {/* Firefox */
+    from {-moz-transform:rotate(0deg);}
+to {-moz-transform:rotate(360deg);}
+}
+
+@-webkit-keyframes myfirst /* Safari and Chrome */
+{
+    from {-webkit-transform:rotate(0deg);}
+to {-webkit-transform:rotate(360deg);}
+}
+/**** LOADER STARTS ****/
+
+
+/**** MODAL POPUP STARTS ****/
+.greyLayer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9;
+}
+
+.greyLayerTut {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9;
+    display: none;
+}
+
+.loaderPopupGreyLayer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 5;
+}
+
+.landscapGreyLayer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 5;
+}
+
+.popup {
+    width: 88%;
+    position: absolute;
+    top: 23% !important;
+    left: 6%;
+    display: none;
+    z-index: 10;
+}
+
+.popup .popupTitle {
+    font-size: 150%;
+    color: #ffffff;
+    background: #303030;
+    padding: 5% 0 5% 5% !important;
+    text-align: left;
+    border-bottom: 2px solid #1b1b1b !important;
+}
+
+.popup .popupFooter {
+    font-size: 110%;
+    color: #ffffff !important;
+    background: #303030;
+    padding: 4% 0 4% 0;
+    text-align: center;
+    border-top: 2px solid #474747 !important;
+}
+
+.popup .popupFooter:active {
+    background: #646565;
+}
+
+.popup .popupFooter1 {
+    font-size: 120%;
+    color: #ffffff !important;
+    background: #303030;
+    text-align: center;
+    border-top: 2px solid #474747 !important;
+    width: 100%;
+    float: left;
+    font-size: 110%;
+}
+
+.popup .popupFooter1 .cancel {
+    background: #303030;
+    width: 50%;
+    float: left;
+    border-right: 2px solid #474747 !important;
+    padding: 2% 0;
+    font-size: 110%;
+}
+
+.popup .popupFooter1 .ok {
+    background: #303030;
+    width: 48%;
+    padding: 2% 0;
+    float: right;
+    font-size: 110%;
+}
+
+.popup .popupContent {
+    color: #FFFFFF;
+    padding: 20%;
+    text-align: center;
+    font-size: 110%;
+}
+
+.popup
+{
+    padding-bottom: 20px;
+}
+
+.popup1 {
+    width: 88%;
+    position: absolute;
+    top: 23% !important;
+    left: 6%;
+    display: none;
+    z-index: 10;
+}
+
+.popup1 .popupTitle {
+    font-size: 150%;
+    color: #ffffff;
+    background: #303030;
+    padding: 5% 0 5% 5% !important;
+    text-align: left;
+    border-bottom: 2px solid #1b1b1b !important;
+}
+
+.popup1 .popupFooter {
+    font-size: 110%;
+    color: #ffffff !important;
+    background: #303030;
+    padding: 4% 0 4% 0;
+    text-align: center;
+    border-top: 2px solid #474747 !important;
+}
+
+.popup1 .popupFooter:active {
+    background: #646565;
+}
+
+.popup1 .popupFooter1 {
+    font-size: 120%;
+    color: #ffffff !important;
+    background: #303030;
+    text-align: center;
+    border-top: 2px solid #474747 !important;
+    width: 100%;
+    float: left;
+    font-size: 110%;
+}
+
+.popup1 .popupFooter1 .cancel {
+    background: #303030;
+    width: 50%;
+    float: left;
+    border-right: 2px solid #474747 !important;
+    padding: 2% 0;
+    font-size: 110%;
+}
+
+.popup1 .popupFooter1 .ok {
+    background: #303030;
+    width: 48%;
+    padding: 2% 0;
+    float: right;
+    font-size: 110%;
+}
+
+.popup1 .popupContent {
+    color: #FFFFFF;
+    padding: 20%;
+    text-align: center;
+    font-size: 110%;
+}
+
+.popup1 {
+    padding-bottom: 20px;
+}
+
+ul li {
+    list-style-type: none;
+    line-height: 100%;
+    display: block;
+    text-decoration: none;
+}
+
+#navlist {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    border-top: 2px solid #6b6a6a !important;
+}
+
+#navlist,#navlist {
+    background-color: #303030;
+    color: #FFFFFF !important;
+    display: block;
+    padding: 4% 0 4% 0 !important;
+    font-size: 110% !important;
+    text-decoration: none;
+    text-align: left;
+}
+
+.optionTab {
+    padding: 0 0 0 5%;
+}
+
+.inputTextBlack {
+    color:#333333 !important;
+}
+.inputTextGrey {
+    color:#b4b4b4 !important;
+}
+.inputTextGrey:focus{
+    color:#333333 !important;
+}
+/**** MODAL POPUP ENDS ****/
+/**** OPTION MENU START****/
+#popupOptionMenu{
+    position: absolute;
+    width: 85%;
+    height: auto;
+    background-color: #fff;
+    margin-left: 7%;
+    bottom: 15%;
+    border-radius: 5px;
+    padding: 1% 1% 1% 1%;
+    z-index: 100;
+    -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+    -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+}
+
+
+#optionMenuList{
+    width:100%;
+    overflow-x:hidden;
+    overflow-y:hidden;
+    margin:0px 0px 0px 0px!important;
+    padding:0px 0px 0px 0px!important;
+    background-color: #fff;
+}
+#optionMenuFirstItem{
+    color: #6093be;
+    font-size: 130%;
+    line-height: 100%;
+    padding: 0.7em 0 !important;
+    padding-left: 4% !important;
+    font-weight: normal !important;
+    border-bottom: 2px solid #6093be !important;
+}
+.optionMenuItem{
+    font-weight: normal !important;
+    background-color: #fff;
+    width: 120%;
+    height: 100%;
+    margin-left: 5%;
+    display: inline-block;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    color:#828282;
+    padding: 3% 0;
+}
+
+.arrow-Right {
+    width: 0;
+    height: 0;
+    position : absolute;
+    margin-left: 77%;
+    border-style: solid;
+    border-width: 0 25px 25px 0;
+    border-color: transparent #fff transparent transparent;
+}
+.optionMenuGreyLayer{
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 99;
+}
+/**** OPTION MENU END****/
+
+/**** MUSIC LIST START****/
+#popupMusicList{
+    position: absolute;
+    width: 85%;
+    height: auto;
+    background-color: #fff;
+    margin-left: 7%;
+    bottom: 15%;
+    border-radius: 5px;
+    padding: 1% 1% 0% 1%;
+    z-index: 100;
+    -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+    -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+}
+#list {
+    position: relative ! important;
+}
+#musicListScroll {
+    max-height: 100px ;
+    position: relative;
+}
+#musicListScroll > div:nth-child(2){
+    top: 0px !important;
+    bottom: 0px !important;
+    right: 0px !important;
+    margin-top:-1px!important;
+    width: 4px !important;
+    background-color: #cccccc !important;
+}
+#musicListScroll > div:nth-child(2) > div{
+    width: 4px!important;
+    opacity: 1 !important;
+    background-clip: none!important;
+    background-color: #6093be;
+    border-top-left-radius: 0 !important;
+    border-top-right-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+}
+#musicListHeader{
+    color: #6093be;
+    font-weight: normal !important;
+    border-bottom: 2px solid #6093be !important;
+    margin-bottom: 1px;
+}
+#musicListHeader-text{
+    margin-left: 3%;
+    font-size: 130%;
+    padding: 0.7em 0 !important;
+    padding-left: 4% !important;
+}
+
+#musicListItem
+{
+    width: 100% !important;
+    margin:0px 0px 0px 0px!important;
+    display: inline-block!important;
+    border-bottom: 1px solid #a8a8a8!important;
+    position:relative!important;
+    padding: 1% 0 !important;
+}
+#marquee{
+    overflow: hidden;
+    float: left;
+    position: relative;
+    display: inline-block;
+}
+#musicName{
+    display: block;
+    position: relative;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    float: left;
+    white-space: nowrap;
+    color: #a8a8a8;
+}
+#songTitle{
+    overflow: hidden;
+    position: relative;
+    float: left;
+    width: 90%;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+
+}
+#tilteContainer{
+    width: 100%;
+    float: left;
+    height: 1.5em;
+}
+#statusContainer{
+    width: 4%;
+    height: 100%;
+    margin: 0 2% 0 1%;
+    float: left;
+    position: relative;
+}
+#status{
+/*    content: url('../images/pause.png'); */
+    width: 80%;
+    visibility: hidden;
+    float: left;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+}
+#artistName
+{
+    float: left;
+    padding-left: 7%;
+    overflow: visible;
+    width: 90%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #a8a8a8;
+    margin: 0% ! important;
+    font-weight: normal !important;
+}
+#nickName
+{
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: right;
+    width : 95%;
+    color: #a8a8a8;
+    float: left;
+    margin-right: 5%;
+}
+#shareBottom{
+    position: relative;
+    font-size:130%;
+    line-height:130%;
+    background-color: #6093be;
+    border-radius : 5em;
+    margin: 5% 25%;
+    padding: 2.5% 0 2% 12%;
+    text-overflow: ellipsis;
+}
+#btnAdd{
+    overflow: hidden;
+    color:#fff;
+    white-space: nowrap;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    float: left;
+    position: relative;
+}
+#musicAddIcon{
+    position: absolute;
+    float: left;
+    z-index: 200;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    left: 30%;
+    height: 25%;
+}
+.arrow-Left {
+    width: 0;
+    height: 0;
+    position : absolute;
+    top: 99%;
+    margin-left: 14%;
+    border-style: solid;
+    border-width:  25px  25px 0  0;
+    border-color: #fff  transparent transparent transparent;
+}
+.musicListGreyLayer{
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 99;
+}
+/**** MUSIC LIST END****/
+/**** TOAST MESSAGE STARTS ****/
+#toastMessage{
+    height: auto;
+    width: 40%;
+    background-color: #6093be;
+    left: 30%;
+    position: absolute;
+    bottom: 16%;
+    z-index: 100;
+    border-radius: 0.4em;
+}
+#toastMessageText{
+    overflow: hidden;
+    width : 100%;
+    text-align: center;
+    text-shadow: none !important;
+    font-weight: normal !important;
+    color: #fff;
+    font-size: 100%;
+    padding: 7% 0;
+}
+/**** TOAST MESSAGE ENDS ****/
+/**** TUTORIAL POPUP STARTS ****/
+#tutorialPopup{
+    height: auto;
+    width: 90%;
+    background-color: #6093be;
+    left: 5%;
+    position: absolute;
+    bottom: 16%;
+    z-index: 100;
+}
+#exitTutorial{
+    width : 4%;
+    margin-left: 94%;
+    margin-top: 2%;
+}
+#tutorialText{
+    overflow: hidden;
+    padding: 1% 0 0 0;
+    margin: 0 0 7% 0;
+    width : 100%;
+    text-align: center;
+    text-shadow: none !important;
+    font-weight: normal !important;
+    color: #fff;
+    font-size: 100%;
+}
+.arrow-bottom {
+    width: 0;
+    height: 0;
+    bottom: 0%;
+    top: 100%;
+    left:0;
+    right:0;
+    margin-left:auto;
+    margin-right:auto;
+    position : absolute;
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    border-top: 12px solid #6093be;
+}
+.tutorialGreyLayer{
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 99;
+}
+/**** TUTORIAL POPUP ENDS ****/
+
+/**** EXIT MODAL POPUP STARTS ****/
+#exitPartyShareDialog {
+    position: absolute;
+    width: 80%;
+    height: auto;
+    background-color: #fff;
+    margin-left: 9%;
+    margin-top: 30%;
+    border-radius: 5px;
+    padding: 1% 1% 1% 1%;
+    z-index: 100;
+    -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+    -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+}
+#exitPartyShareDialog h1{
+    border-bottom: 2px solid #6093be !important;
+    color: #6093be;
+    font-size: 130%;
+    padding: 0.7em 0;
+    padding-left: 5%;
+    font-weight: normal !important;
+}
+#exitPartyShareDialog h2{
+    color: #828282;
+    font-size: 100%;
+    margin: 5% 0 5% 5% !important;
+    font-weight: normal !important;
+    overflow: visible;
+    width: 90%;
+}
+#exitPartyShareBtnOk {
+    display: inline-block;
+    width: 30%;
+    padding: 3% 0%;
+    margin: 0 0% 5% 5% !important;
+    background-color: #fff;
+    border: 2px solid #6093be;
+    color: #6093be ! important;
+    position: relative! important;
+    text-align: center;
+    border-radius: 0.3em !important;
+}
+#exitPartyShareBtnCancel{
+    display: inline-block;
+    width: 30%;
+    padding: 3% 0%;
+    margin: 0 0% 5% 15% !important;
+    background-color: #fff;
+    border: 2px solid #6093be;
+    color: #6093be ! important;
+    position: relative! important;
+    text-align: center;
+    border-radius: 0.3em !important;
+}
+.exitPartyShareGreyLayer{
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 99;
+}
+.exitPartyShareDialogGreyLayer {
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 99;
+}
+/**** EXIT MODAL POPUP ENDS ****/
+
+/**** SAVE CONTENT POPUP START ****/
+#saveContentDialog{
+    position: absolute;
+    width: 80%;
+    height: auto;
+    background-color: #fff;
+    margin-left: 9%;
+    margin-top: 30%;
+    border-radius: 5px;
+    padding: 1% 1% 1% 1%;
+    z-index: 100;
+    -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+    -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+}
+#saveContentDialog h1{
+    border-bottom: 2px solid #6093be !important;
+    color: #6093be;
+    font-size: 130%;
+    padding: 0.7em 0;
+    padding-left: 5%;
+    font-weight: normal !important;
+}
+#saveContentDialog h2{
+    color: #828282;
+    font-size: 100%;
+    margin: 5% 0 5% 5% !important;
+    font-weight: normal !important;
+    overflow: visible !important;
+}
+#saveContentBtnOk {
+    display: inline-block;
+    width: 30%;
+    padding: 3% 0%;
+    margin: 0 0% 5% 5% !important;
+    background-color: #fff;
+    border: 2px solid #6093be;
+    color: #6093be ! important;
+    position: relative! important;
+    text-align: center;
+    border-radius: 0.3em !important;
+}
+#saveContentBtnCancel{
+    display: inline-block;
+    width: 30%;
+    padding: 3% 0%;
+    margin: 0 0% 5% 15% !important;
+    background-color: #fff;
+    border: 2px solid #6093be;
+    color: #6093be ! important;
+    position: relative! important;
+    text-align: center;
+    border-radius: 0.3em !important;
+}
+.saveContentGreyLayer{
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 99;
+}
+/**** SAVE CONTENT POPUP END ****/
+
+/**** NICK NAME MODAL POPUP STARTS ****/
+#editNickName{
+    position: absolute;
+    width: 80%;
+    height: auto;
+    background-color: #fff;
+    margin-left: 9%;
+    margin-top: 25%;
+    border-radius: 5px;
+    padding: 1% 1% 1% 1%;
+    z-index: 100;
+    -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+    -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+    display: none;
+}
+#editNickName h1{
+    border-bottom: 2px solid #6093be !important;
+    color: #6093be;
+    font-size: 130%;
+    padding: 0.7em 0;
+    padding-left: 5%;
+    font-weight: normal !important;
+}
+#editNickName h2{
+    color: #828282;
+    font-size: 100%;
+    margin: 5% 0 5% 5% !important;
+    font-weight: normal !important;
+    overflow: visible;
+}
+#editNickNameBoder {
+    height: auto !important;
+    width: 90%;
+    margin: 0 5% 5% 5%;
+    padding: 1% 0%;
+    border-radius: 0.3em !important;
+    border: 1px solid #828282 !important;
+}
+#editNickName div {
+    margin: 0 5% 5% 5%;
+    height: auto !important;
+}
+#editNickName div input{
+    font-size: 100% !important;
+    width: 100%;
+    padding: 2% 0;
+}
+.editNickNameGreyLayer{
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 99;
+}
+#dialogOk {
+    display: inline-block;
+    width: 30%;
+    padding: 3% 0%;
+    margin: 0 0% 0% 0;
+    background-color: #f3f3f3;
+    position: relative! important;
+    text-align: center;
+    border-radius: 0.3em !important;
+}
+#dialogCancel{
+    display: inline-block;
+    width: 30%;
+    padding: 3% 0%;
+    margin: 0 0% 0% 15% !important;
+    background-color: #fff;
+    border: 2px solid #6093be;
+    color: #6093be ! important;
+    position: relative! important;
+    text-align: center;
+    border-radius: 0.3em !important;
+    overflow: visible !important;
+}
+/**** NICK NAME MODAL POPUP ENDS ****/
+
+
+/**** ERROR MODAL POPUP STARTS ****/
+#DyanamicInputDiv .errorPopup {
+    position: absolute;
+    width: 80%;
+    height: auto;
+    background-color: #f0f0f0 ! important;
+    margin-left: 9%;
+    margin-top: 25%;
+    border-radius: 5px;
+    padding: 1% 1% 1% 1%;
+    z-index: 10;
+    -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+    -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+    display: none;
+}
+
+#DyanamicInputDiv .errorPopup .errorPopupFooter {
+    font-size: 120%;
+    width: 36%;
+    margin-left: 34%;
+    margin-bottom: 4%;
+    color: #fff !important;
+    background: #6093be;
+    padding: 4% 0 4% 0;
+    text-align: center;
+    border-radius: 5px;
+}
+
+
+#DyanamicInputDiv #errorNavlist {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    font-size: 110%;
+}
+
+#DyanamicInputDiv #errorNavlist .errorText {
+    margin: 10% 10% 0 10%!important;
+    text-align: center;
+    width: 80%;
+    font-size: 80%;
+    padding-bottom: 10%;
+}
+
+#DyanamicInputDiv #errorNavlist,#errorNavlist {
+    color: #828282;
+    display: block;
+    padding: 5% 0 !important;
+    font-size: 150% !important;
+    text-decoration: none;
+    text-align: left;
+    width: 100%;
+}
+
+#DyanamicInputDiv #errorNavlist a {
+    background-color: #828282;
+    color: #f0f0f0 !important;
+    display: block;
+    padding: 5% 0 5% 5% !important;
+    font-size: 110%;
+    text-decoration: none;
+    text-align: left;
+}
+/**** ERROR MODAL POPUP ENDS ****/
+
+
+/**** CLOSE ERROR MODAL POPUP STARTS ****/
+#DyanamicInputDiv  .errorPopupClose {
+    position: absolute;
+    width: 80%;
+    height: auto;
+    background-color: #f0f0f0 ! important;
+    margin-left: 9%;
+    margin-top: 25%;
+    border-radius: 5px;
+    padding: 1% 1% 1% 1%;
+    -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+    -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+    display: none;
+    z-index: 999;
+}
+
+#DyanamicInputDiv  .errorPopupClose .errorPopupFooterClose {
+    font-size: 120%;
+    color: #828282 !important;
+    background: #f0f0f0;
+    padding: 4% 0 4% 0;
+    text-align: center;
+    border-top: 2px solid #474747 !important;
+}
+
+ul li {
+    list-style-type: none;
+    line-height: 100%;
+    display: block;
+    text-decoration: none;
+}
+
+#DyanamicInputDiv  #errorNavlistClose {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    font-size: 110%;
+}
+
+#DyanamicInputDiv  #errorNavlistClose .errorTextClose {
+    margin: 10% 10% 5% 10% !important;
+    text-align: center;
+    width: 80%;
+    font-size: 80%;
+    line-height: 120%;
+    padding-bottom: 5%;
+}
+
+#DyanamicInputDiv  #errorNavlistClose,#errorNavlistClose {
+    background-color: #f0f0f0;
+    color: #828282 !important;
+    display: block;
+    padding: 5% 0 5% 5% !important;
+    font-size: 150% !important;
+    text-decoration: none;
+    text-align: left;
+}
+
+#DyanamicInputDiv  #errorNavlistClose a {
+    background-color: #f0f0f0;
+    color: #828282 !important;
+    display: block;
+    padding: 5% 0 5% 5% !important;
+    font-size: 110%;
+    text-decoration: none;
+    text-align: left;
+}
+/**** CLOSE ERROR MODAL POPUP ENDS ****/
+
+
+/**** LANDSCAPE MODAL POPUP STARTS ****/
+#DyanamicLandscapDiv .landscapePopup {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: none;
+    z-index: 10;
+    text-align: center;
+    background-color: #f3f3f3;
+}
+#DyanamicLandscapDiv  #landscapeNav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    font-size: 110%;
+    -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    border-radius: 3em;
+    margin-top: 15%;
+    width: 80%;
+    margin-left: 7%;
+}
+
+#DyanamicLandscapDiv  #landscapeNav .errorTextClose {
+    margin: 10% !important;
+    text-align: center;
+    margin-left: 10%;
+    font-size: 80%;
+    position: absolute;
+}
+
+#DyanamicLandscapDiv  #landscapeNav,#landscapeText {
+    background-color: #828282;
+    color: #FFFFFF !important;
+    display: block;
+    padding: 5% 0 5% 5% !important;
+    font-size: 150%;
+    text-decoration: none;
+    text-align: center;
+}
+
+#DyanamicLandscapDiv  #landscapeNav a {
+    color: #fff !important;
+    display: block;
+    padding: 5% 0 5% 5% !important;
+    font-size: 110%;
+    text-decoration: none;
+    text-align: left;
+}
+/**** LANDSCAPE MODAL POPUP ENDS ****/
+
+/**** INITIAL SCREEN STARTS ****/
+.initialContainer {
+    padding: 0;
+    margin: 0 auto;
+    text-align: center;
+    overflow: hidden !important;
+}
+
+.initialContainer {
+    width: 100%;
+    height: 100%;
+    /*    max-width: 980px; */
+    background-color: #e2e3df;
+}
+.initialBackground {
+    width: 100%;
+    left: 0;
+    bottom: 52%;
+    background-image: url(../images/initial-bk-1080.png) ! important;
+    background-size: 100% 100%;
+    position: absolute;
+}
+.LogoContainer {
+    width: 100%;
+    position: absolute;
+    top: 5%;
+    text-align: center;
+    margin: 0 auto;
+}
+.initialLogo{
+    position: absolute;
+    bottom: 42%;
+    height: 10%;
+    width: 100%;
+    background-color: #6093be;
+    text-align: left !important;
+}
+.initialLogo .logoDiv {
+    width:70%;
+    height:100%;
+    left: 30%;
+    position:absolute;
+}
+.initialLogo .logo {
+    font-size: 130%;
+    font-family: Arial;
+    color: #f3f3f3;
+    display: inline-block;
+    position: relative;
+    top: 50%;
+    padding-left: 3%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+}
+
+.initialLogo .logoIconDiv {
+    width:30%;
+    height:100%;
+    left: 0px;
+    position:absolute;
+}
+.initialLogo .logoIcon {
+    height: 70%;
+    margin-top: 7.5%;
+    display: inline-block;
+    float: right;
+}
+
+#initialLogin {
+    color: #c0c0c0;
+    text-align: center;
+    position: absolute;
+    bottom: 4%;
+    margin: 0 auto;
+    width: 100%;
+    background-color: #e2e3df;
+}
+
+#initialLogin form {
+    margin: 0 auto;
+    text-align: center;
+}
+
+#initialLogin label {
+    padding: 0 2% 0 0;
+}
+
+#initialLogin input:focus {
+    color: #333333;
+}
+
+#initialLogin #startBtnContainer .Btn {
+    width: 100%;
+    color: #fff;
+}
+
+#initialLogin .initialTextContainer {
+    width: 84%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#initialLogin .initialTextContainer .initialText {
+    text-align: left;
+    float: left;
+    width: 100%;
+    color: #828282;
+    line-height: 150%;
+    margin: 3% 0 5% 0;
+    font-size: 90%;
+}
+
+#initialLogin .logintextBox {
+    border: 0;
+    border-radius: 0;
+    color: #bfbfbf;
+    background: #fff;
+    padding: 3% 2%;
+    width: 80%;
+    font-size: 90%;
+    margin: 0% 0 5% 0;
+    border-radius: 0.1em !important;
+}
+
+#initialLogin #startBtnContainer {
+    padding: 0;
+    margin: 0 auto;
+    text-align: center;
+    color: #fff;
+    width: 35%;
+    z-index: 9;
+}
+/**** INITIAL SCREEN ENDS ****/
+
+
+/**** TIMELINE SCREEN STARTS ****/
+.commonBk .tgContainer {
+    width: 100%;
+    margin: 0 auto;
+    position: absolute;
+    text-align: center;
+    height: 100%;
+}
+
+.gallery {
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
+    padding: 0 0 30% 0 !important;
+}
+
+.gallery #wrapper {
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    width: 100%;
+    overflow: auto;
+    bottom: 0;
+}
+
+.gallery #wrapper #scroller {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+}
+
+.gallery #wrapper #scroller ul {
+    margin: 0 auto;
+    width: 100%;
+    /*  border: solid 1px white; */
+}
+
+.gallery #wrapper #scroller li {
+    padding: 0;
+    font-size: 100%;
+    width: 100%;
+    text-align: center;
+    overflow: hidden;
+    /*  border: solid 1px yellow; */
+}
+
+.gallery #wrapper #scroller .tlContainer {
+    width:  100%;
+    height: 100%;
+    position: absolute;
+    overflow: hidden;
+
+    /*  border: dashed 1px blue; */
+}
+
+.gallery #wrapper #scroller .tlImgC {
+    width: 55%;
+    left: 22.5%;
+    position: absolute;
+    overflow: hidden;
+
+    /*  border: dashed 1px green; */
+}
+
+.gallery #wrapper #scroller ul li .tlImgC .tlImg {
+    overflow: hidden;
+}
+
+.gallery #wrapper .tlImg:active {
+    opacity: 0.3 !important;
+}
+
+.gallery #wrapper #scroller .oneImg {
+    padding-top: 30%;
+}
+
+.gallery #wrapper #scroller .twoImg {
+    padding-top: 6%;
+}
+
+#scroller .names {
+    width: 55%;
+    left: 0%;
+    bottom: 0;
+    position: absolute;
+    font-size: 100%;
+    text-align: right;
+    /*  border: dashed 1px red; */
+}
+
+#myFrame {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+
+/**** Pull down styles ****/
+#pullDown {
+    background: none !important;
+    height: 40px;
+    line-height: 40px;
+    padding: 5px 10px;
+    font-size: 100%;
+    color: #b4b4b4;
+    text-align: left;
+    overflow:hidden;
+}
+
+#pullDown .pullDownIcon {
+    display: block;
+    float: left;
+    width: 34px;
+    height: 34px;
+    background: url(../images/arrow-up.png) 0 0 no-repeat;
+    background-size: 34px 34px;
+    -webkit-transition-property: -webkit-transform;
+    -webkit-transition-duration: 250ms;
+}
+
+#pullDown .pullDownIcon {
+    -webkit-transform: rotate(-180deg) translateZ(0);
+}
+
+#pullDown.flip .pullDownIcon {
+    -webkit-transform:rotate(0deg) translateZ(0);
+}
+
+#pullDown.loading .pullDownIcon {
+    background-position:0 100%;
+    -webkit-transform:rotate(0deg) translateZ(0);
+    -webkit-transition-duration:0ms;
+    -webkit-animation-name:loading;
+    -webkit-animation-duration:2s;
+    -webkit-animation-iteration-count:infinite;
+    -webkit-animation-timing-function:linear;
+}
+
+.pullText {
+    font-size: 90%!important;
+    padding: 0 0 0 30%;
+}
+
+.pullIcon {
+    left: 30%;
+    position: relative;
+}
+
+.pullNc {
+    padding:50% 0 0 0;
+}
+
+@-webkit-keyframes loading{
+    from { -webkit-transform:rotate(0deg) translateZ(0); }
+to { -webkit-transform:rotate(0deg) translateZ(0);}
+}
+
+.box {
+    width: 100%;
+    padding: 0;
+    background: none !important;
+    margin: 0;
+    border-radius: 5px;
+}
+
+.imgShadow {
+    position: relative;
+}
+
+.imgShadow:after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    -webkit-box-shadow: 0 0 40px rgba(0, 0, 0, 0.9);
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.9);
+    bottom: 2px !important;
+    width: 50% !important;
+    height: 20%;
+    -moz-border-radius: 100%;
+    border-radius: 100%;
+    left: 25% !important;
+    right: 10%;
+    background: none !important;
+}
+
+#mainContainer #shareBtnContainer {
+    margin: 0 auto;
+    padding: 0;
+    z-index: 8;
+    /*
+        text-align: center;
+        display: table-cell;
+    */
+    background: #fff;
+    opacity:.6;
+
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height:10%;
+
+    /*  border : solid 1px red; */
+}
+
+#mainContainer #shareBtnContainer .shareB {
+    text-align: center;
+    padding: 0;
+
+    position : absolute;
+    width: 100%;
+    height: 80%;
+    bottom: 10%;
+
+    /*  border : solid 1px yellow; */
+}
+
+#mainContainer #shareBtnContainer .shareB a .shareBtn {
+    height: 100%;
+    bottom : 0;
+}
+#popupMusicListPosition:active{
+    opacity: 0.8;
+}
+#optionMenuButtonPosition:active{
+    opacity: 0.8;
+}
+#addButtonImg:active{
+    opacity: 0.8;
+}
+/**** TIMELINE SCREEN ENDS ****/
+
+
+/**** NO CACHE SCREEN STARTS ****/
+.commonBk .nC {
+    padding: 80% 0 0 0;
+}
+
+.ncContainer {
+    width: 100%;
+    bottom: 0;
+    position: relative;
+}
+
+.ncContainer .ncContentWrapper {
+    width: 75%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.ncContainer .ncContentWrapper .ncText {
+    color: #3c94ff;;
+    text-align: left;
+    float: left;
+    font-size: 90%;
+    line-height: 160%;
+}
+
+.ncContainer .ncContentWrapper .ncImg {
+    width: 15%;
+}
+/**** NO CACHE SCREEN ENDS ****/
+
+
+/**** HISTORY SCREEN STARTS ****/
+.historyHeader {
+    background: #000000;
+    width: 100%;
+    position: absolute;
+    z-index: 9;
+    padding: 0.5% 0;
+}
+
+.historyHeader .headerBtn {
+    font-weight: normal !important;
+    padding: 2% 5%;
+    text-align: left;
+    float: left;
+    color: #ffffff;
+    border: solid 1px #4d4d4d;
+    background: #f78d1d;
+    background: -webkit-gradient(linear, left top, left bottom, from(#262626),
+        to(#141414));
+    background: -moz-linear-gradient(top, #262626, #141414);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#262626',
+        endColorstr='#141414');
+    margin: 3% 2%;
+    font-size: 100%;
+}
+
+.commonBk .historyContainer .imgContainer {
+    top: 13%;
+    width: 100%;
+    height: 60%;
+    text-align: center;
+    padding: 0;
+    overflow: hidden;
+    position: absolute;
+
+    /*  border: dashed 1px red; */
+}
+
+.commonBk .historyContainer .imgContainer .historyImg {
+    width: 100%;
+    height: 70%;
+}
+
+.commonBk .historyContainer {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+.commonBk .historyContainer .hC{
+    padding: 35% 0 5% 0;
+    width: 100%;
+    height: 72%;
+    position: absolute;
+}
+
+.historyContainer .historyText {
+    color: #b4b4b4;
+    text-align: center;
+    font-size: 80%;
+    position: fixed;
+    bottom: 22% !important;
+    margin: 0 auto;
+    padding: 0;
+    width: 100%;
+}
+
+.throwBContainer {
+    position: absolute;
+    bottom: 20% !important;
+    margin: 0 auto;
+    padding: 0;
+    text-align: center;
+    width: 100%;
+}
+
+.throwB {
+    width: 25%;
+    height: auto;
+    margin: 0 auto;
+    text-align: center;
+    position: absolute;
+    left: 37.5%;
+
+}
+
+.throwButton {
+    -webkit-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+    -ms-transition: all 1s ease-in-out;
+    transition: all 1s ease-in-out;
+    -webkit-animation-direction: normal;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-name: blink;
+    -webkit-animation-timing-function: ease-in-out;
+    width: 25%;
+    height: auto;
+    margin: 0 auto;
+    text-align: center;
+    position: absolute;
+    left: 37.5%;
+}
+
+@-webkit-keyframes 'blink' {
+    0% {
+    opacity: 1;
+}
+50% {
+    opacity: 0.2;
+}
+100% {
+    opacity: 1;
+}
+}
+
+.throwButtonGlow {
+    background: url(../images/throw_h.png) no-repeat;
+    width: 25%;
+    height: auto;
+    margin: 0 auto;
+    text-align: center;
+}
+/**** HISTORY SCREEN ENDS ****/
+
+/**** INVITE NEW GUEST START ****/
+#inviteNewGuest{
+
+}
+#inviteNewGuest h1 {
+    text-align: center;
+    color: #828282;
+    font-size: 170%;
+    clear: both;
+    padding: 6% 0 6% 5%;
+    font-weight: normal;
+    line-height: 150%;
+}
+#inviteNewGuest h2 {
+    color: #828282;
+    font-size: 110%;
+    padding: 3% 0 3% 5%;
+    width: 90%;
+    font-weight: normal;
+    line-height: 150%;
+}
+#inviteNewGuest #networkName {
+    color: #6093be;
+    width: 90%;
+    font-weight: normal;
+    font-size: 100%;
+    line-height: 150%;
+}
+#inviteNewGuest #password {
+    color: #6093be;
+    margin: 5% 0 8% 0%;
+    font-size: 100%;
+    font-weight: normal;
+}
+.nfcImgContainer {
+    width:100%;
+    height: auto;
+    position: absolute;
+}
+#inviteNewGuest .nfcImgContainer #urlAddress {
+    color: #6093be;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    font-weight: normal;
+    display: inline;
+    position: absolute;
+    width: 70%;
+}
+#inviteNewGuest .nfcImgContainer #qrcodeImg {
+    margin-left: 70%;
+    display: inline;
+}
+#inviteNewGuest .nfcImgContainer #qrcodeImg canvas{
+    border: 5px solid #fff;
+}
+#bottomInvite{
+    position: absolute;
+    bottom: 0%;
+    float: bottom;
+    width: 100%;
+    height: 24%;
+}
+#bottomBar {
+    bottom: 0;
+    width: 100%;
+    z-index: 1;
+    margin: 0 auto;
+    height: auto;
+    position: absolute;
+}
+#bottomInvite .hideBtn,.showBtn{
+    padding: 3% 0;
+    text-align: center;
+    width: 36%;
+    margin: 0 0 0 5%;
+    float: left !important;
+    border: 2px solid #6093be;
+    color: #6093be !important;
+    background-color: #f3f3f3;
+    border-radius: 0.3em ! important;
+    -moz-border-radius: 0.3em  ! important;
+    -webkit-border-radius: 0.3em  ! important;
+    -khtml-border-radius: 0.3em  ! important;
+    font-size: 100%;
+}
+#bottomInvite .showBtn{
+    margin: 0 0 0 11%;
+}
+#bottomInvite .closeInviteNewGuest{
+    font-size: 100%;
+    padding: 3% 0;
+    text-align: center;
+    width: 36%;
+    margin:5% 0 5% 32%;
+    float: left !important;
+    border: 2px solid #6093be !important;
+    color: #fff ! important;
+    background-color: #6093be;
+    border-radius: 0.3em ! important;
+    -moz-border-radius: 0.3em ! important;
+    -webkit-border-radius: 0.3em ! important;
+    -khtml-border-radius: 0.3em ! important;
+}
+/**** INVITE NEW GUEST ENDS ****/
+@media (max-width: 379px)
+{
+    #inviteNewGuest h1 {
+        font-size: 200%;
+        line-height: 150%;
+    }
+    #inviteNewGuest h2 {
+        font-size: 130%;
+        line-height: 150%;
+    }
+    #inviteNewGuest #networkName {
+        font-size: 130%;
+        line-height: 150%;
+    }
+    #inviteNewGuest #password {
+        font-size: 130% !important;
+        line-height: 150%;
+    }
+    #inviteNewGuest .nfcImgContainer #urlId {
+        font-size: 130% ! important;
+    }
+    .initialBackground {
+        background-image: url(../images/initial-bk-320.png)!important;
+    }
+    .arrow-Right , .arrow-Left {
+        border-width: 0 20px 20px 0;
+    }
+    .arrow-Left {
+        border-width: 20px 20px 0 0 ! important;
+    }
+    .LogoContainer .logo {
+        font-size: 6.0vw;
+        color: #828282;
+    }
+    #initialLogin {
+        bottom: 5% !important;
+    }
+
+    #initialLogin .initialTextContainer .initialText {
+        margin: 3% 0 5% 0;
+        font-size: 75% !important;
+    }
+
+    #initialLogin .logintextBox {
+        font-size: 95%;
+        margin: 0 0 5% 0;
+    }
+
+    .ncContainer .ncContentWrapper .ncText {
+        font-size: 90%;
+    }
+
+    .historyContainer {
+        width: 100%;
+    }
+
+    .popup .popupTitle {
+        font-size: 155%;
+    }
+
+    .popup .popupFooter {
+        font-size: 120%;
+    }
+
+    .popup1 .popupTitle {
+        font-size: 155%;
+    }
+
+    .popup1 .popupFooter {
+        font-size: 120%;
+    }
+
+
+    #navlist,#navlist a,#navlist a:visited {
+        font-size: 110%;
+    }
+
+    #exitnavlist,#exitnavlist a,#exitnavlist a:visited {
+        font-size: 110%;
+    }
+
+    #cnavlist {
+        font-size: 110%;
+    }
+
+    .editusernamepopup .epopupTitle {
+        font-size: 140%;
+    }
+
+    .editusernamepopup #enavlist {
+        font-size: 110%;
+    }
+
+    .editusernamepopup .popupFooter1 {
+        font-size: 110%;
+    }
+
+    .controlbgmPopup .cpopupTitle {
+        font-size: 140%;
+    }
+
+    .controlbgmPopup .controlbgmPopup #cnavlist {
+        font-size: 110%;
+    }
+
+    .controlbgmPopup .cpopupFooter {
+        font-size: 110%;
+    }
+
+    #DyanamicInputDiv #errorNavlist,#errorNavlist {
+        font-size: 110%;
+    }
+
+    #DyanamicInputDiv .errorPopup .errorPopupFooter {
+        font-size: 110%;
+    }
+
+    #DyanamicInputDiv  #errorNavlistClose,#errorNavlistClose {
+        font-size: 110%;
+    }
+
+    #DyanamicInputDiv  .errorPopupClose .errorPopupFooterClose {
+        font-size: 110%;
+    }
+
+    #DyanamicLandscapDiv  #landscapeNav,#landscapeNav {
+        font-size: 110%;
+    }
+
+    #DyanamicInputDiv  .landscapePopup .landscapeFooter {
+        font-size: 110%;
+    }
+
+    .exitPopup .exitPopupTitle {
+        font-size: 140%;
+    }
+
+    .exitPopup .exitPopupFooter {
+        font-size: 110%;
+    }
+
+    #exitnavlist,#exitnavlist a,#exitnavlist a:visited {
+        font-size: 110%;
+    }
+
+    .exitPopup .popupFooter1 {
+        font-size: 110%;
+    }
+
+    #navlist,#navlist a,#navlist a:visited {
+        font-size: 110%;
+    }
+
+    #cnavlist {
+        font-size: 110%;
+    }
+    .sliderBottom .slideSelectors .item {
+        width: 10px;
+        height: 10px;
+        -webkit-border-radius: 55%;
+        -moz-border-radius: 55%;
+        border-radius: 55%;
+    }
+
+    .loadingImg {
+        width: 25%;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 768px)
+{
+    img.imgIconTV {
+        width:10%;
+    }
+    #shareBottom{
+        font-size:200%;
+        line-height: 180%;
+        padding: 2% 0 1.5% 14%;
+    }
+    #toastMessageText{
+        font-size: 160% !important;
+    }
+    .initialLogo .logo {
+        font-size: 200%;
+    }
+    #editNickName h1, #exitPartyShareDialog h1,#saveContentDialog h1{
+        font-size: 200%;
+    }
+    #editNickName h2, #exitPartyShareDialog h2,#saveContentDialog h2{
+        font-size: 180%;
+    }
+    #editNickName div input{
+        font-size: 160% !important;
+    }
+    .closeInviteNewGuest div, .hideBtn div, .showBtn div, #dialogOk, #dialogCancel, #saveContentBtnCancel, #saveContentBtnOk, #exitPartyShareBtnCancel, #exitPartyShareBtnOk {
+        font-size: 150%;
+    }
+    #tutorialText{
+        font-size: 170%;
+    }
+    #optionMenuFirstItem, #musicListHeader-text {
+        font-size: 200%;
+    }
+    .optionMenuItem{
+        font-size: 180%;
+    }
+    .initialBackground {
+        background-image: url(../images/initial-bk-720.png) !important;
+    }
+    #musicName {
+        font-size: 170%;
+        line-height: 2em;
+    }
+    #tilteContainer{
+        height: 3.2em;
+    }
+    #artistName
+    {
+        font-size: 150%;
+        line-height: 1.1em;
+    }
+    #nickName{
+        font-size: 150%;
+        line-height: 1.1em;
+    }
+    .arrow-Right{
+        border-width: 0 28px 28px 0 ! important;
+    }
+    .arrow-Left{
+        border-width: 28px 28px 0 0 ! important;
+    }
+    .LogoContainer .logo {
+        font-size: 200%;
+    }
+
+    #initialLogin {
+        bottom: 3% !important;
+    }
+
+    #initialLogin .initialTextContainer .initialText {
+        width: 100%;
+        font-size: 130%;
+    }
+
+    #initialLogin .logintextBox {
+        font-size: 130%;
+    }
+
+    #initialLogin #startBtnContainer .Btn {
+        font-size: 160% !important;
+    }
+
+    .ncContainer .ncContentWrapper .ncText {
+        font-size: 125%;
+    }
+
+    .commonBk .nC {
+        padding: 69% 0 0 0 !important;
+    }
+
+    .pullText {
+        font-size: 120%!important;
+        padding: 0 0 0 40%;
+    }
+
+    .pullIcon {
+        left: 40%;
+    }
+
+    .historyContainer {
+        width: 100%;
+    }
+
+    .commonBk .historyContainer .hC{
+        padding: 28% 0 5% 0;
+    }
+
+    .historyHeader .headerBtn {
+        font-size: 130%;
+    }
+
+    .popup .popupTitle {
+        font-size: 255%;
+    }
+
+    .popup .popupFooter {
+        font-size: 200%;
+    }
+
+    .popup1 .popupTitle {
+        font-size: 255%;
+    }
+
+    .popup1 .popupFooter {
+        font-size: 200%;
+    }
+
+    #navlist, #navlist a, #navlist a:visited {
+        font-size: 210%;
+    }
+
+    #exitnavlist,#exitnavlist a,#exitnavlist a:visited {
+        font-size: 210%;
+    }
+
+    #cnavlist {
+        font-size: 210%;
+    }
+
+    .editusernamepopup .epopupTitle {
+        font-size: 240%!important;
+    }
+
+    .editusernamepopup #enavlist {
+        font-size: 210%;
+    }
+
+    .editusernamepopup .popupFooter1 {
+        font-size: 150%;
+    }
+
+    #navlist input {
+        font-size: 140%;
+    }
+
+    #enavlist input {
+        padding: 1.5% 0 1.5% 2%;
+    }
+
+    .controlbgmPopup .cpopupTitle {
+        font-size: 240%!important;
+    }
+
+    .controlbgmPopup .controlbgmPopup #cnavlist {
+        font-size: 210%;
+    }
+
+    .controlbgmPopup .cpopupFooter {
+        font-size: 210%;
+    }
+
+    #DyanamicInputDiv #errorNavlist,#errorNavlist {
+        font-size: 210%;
+    }
+
+    #DyanamicInputDiv .errorPopup .errorPopupFooter {
+        font-size: 150%;
+        width: 26%;
+        margin-left: 37%;
+        padding: 3% 0;
+
+    }
+    #DyanamicInputDiv  #errorNavlistClose,#errorNavlistClose {
+        font-size: 210%;
+    }
+
+    #DyanamicInputDiv  .errorPopupClose .errorPopupFooterClose {
+        font-size: 150%;
+    }
+
+    #DyanamicInputDiv  #errorNavlistClose .errorTextClose {
+        margin: 0 !important;
+        line-height: 140%;
+        font-size: 110%;
+        padding-bottom: 0%;
+        width: 100%;
+    }
+    #DyanamicInputDiv  #errorNavlistClose{
+        padding: 5% !important;
+    }
+    #DyanamicInputDiv  #errorNavlistClose .landscapeText {
+        font-zise: 210% ! important;
+    }
+
+    #DyanamicLandscapDiv  #landscapeNav,#landscapeNav {
+        font-size: 210%;
+    }
+
+    #DyanamicInputDiv  .landscapePopup .landscapeFooter {
+        font-size: 150%;
+    }
+    #DyanamicInputDiv #errorNavlist .errorText {
+        font-size: 100% !important;
+        margin: 2% 2% 0 10%!important;
+        padding-bottom: 0% !important;
+    }
+    .exitPopup .exitPopupTitle {
+        font-size: 240%;
+    }
+
+    .exitPopup .exitPopupFooter {
+        font-size: 150%;
+    }
+
+    #exitnavlist,#exitnavlist a,#exitnavlist a:visited {
+        font-size: 210%;
+    }
+
+    .exitPopup .popupFooter1 {
+        font-size: 150%;
+    }
+
+    #navlist,#navlist a,#navlist a:visited {
+        font-size: 210%;
+    }
+
+    .optionTab {
+        font-size: 150%;
+    }
+
+    .historyContainer .historyText {
+        font-size: 120%;
+    }
+
+    .loadingImg {
+        width: 20%;
+    }
+
+    .loaderpop .loaderpopupContent {
+        margin-top: 45%;
+    }
+    .slider{
+        height: 55%;
+    }
+    .inner .nfcImgTwo .inm1 {
+        margin-top: 0%;
+    }
+    .inner h1 {
+        font-size: 200%;
+    }
+
+    .inner h2 {
+        font-size: 180%;
+    }
+
+    .inner aside.text {
+        font-size: 140%;
+    }
+
+    .inner aside.url {
+        font-size: 140%;
+    }
+    .inner .nfcImgContainer {
+        width: 13% !important;
+        margin-right: 5%;
+    }
+    .tutPopup .tutPopupTitle .tutA {
+        max-height: 110% !important;
+    }
+
+    .tutPopup .tutPopupTitle .head {
+        font-size: 210%;
+        top: 2%;
+        left: 2%;
+    }
+
+    .tutPopup .tutPopupTitle .text1 {
+        font-size: 150%;
+        top: 17.5%;
+    }
+
+    .tutPopup .tutPopupTitle .text2 {
+        font-size: 150%;
+        top: 22.5%;
+    }
+
+    .tutPopup .tutPopupTitle .text3 {
+        font-size: 150%;
+        top: 28%;
+    }
+
+    .tutPopup .tutPopupTitle .text4 {
+        font-size: 150%;
+        top: 64%;
+    }
+
+    .tutPopup .tutPopupTitle .text5 {
+        font-size: 150%;
+        top: 82%;
+    }
+    #inviteNewGuest h1 {
+        font-size: 270% ! important;
+    }
+    #inviteNewGuest h2,#inviteNewGuest #networkName,#inviteNewGuest #password{
+        font-size: 200% ! important;
+    }
+    #inviteNewGuest .nfcImgContainer #urlId {
+        font-size: 200% ! important;
+    }
+}
+
+
+@media (min-width: 769px) and (max-width: 1024px)
+{
+    img.imgIconTV {
+        width: 8%;
+    }
+    #shareBottom{
+        font-size:260%;
+        line-height: 180%;
+        padding: 1.5% 0 1.5% 14%;
+    }
+    #toastMessageText{
+        font-size: 200% !important;
+    }
+    #tilteContainer {
+        margin: 1% 0;
+    }
+    .initialLogo .logo {
+        font-size: 250%;
+    }
+    #editNickName h1, #exitPartyShareDialog h1,#saveContentDialog h1{
+        font-size: 260%;
+    }
+    #editNickName h2, #exitPartyShareDialog h2,#saveContentDialog h2{
+        font-size: 200%;
+    }
+    #editNickName div input{
+        font-size: 200% !important;
+    }
+    .closeInviteNewGuest div, .hideBtn div, .showBtn div, #dialogOk, #dialogCancel, #saveContentBtnCancel, #saveContentBtnOk, #exitPartyShareBtnCancel, #exitPartyShareBtnOk {
+        font-size: 180%;
+    }
+    #tutorialText{
+        font-size: 200%;
+    }
+    #optionMenuFirstItem, #musicListHeader-text {
+        font-size: 240%;
+        line-height: 100%;
+    }
+    .optionMenuItem{
+        font-size: 200%;
+    }
+    #musicName {
+        font-size: 200%;
+        line-height: 2em;
+    }
+    .optionMenuItem{
+        padding: 4% 0;
+    }
+
+    #artistName
+    {
+        font-size: 170%;
+        line-height: 1em;
+    }
+    #nickName{
+        font-size: 170%;
+        line-height: 2em;
+        margin: 1% 5% 0 0 ! important;
+    }
+    .inner .nfcImgContainer {
+        width: 25%;
+        height: 50%;
+        margin-right: 5%;
+    }
+    .inner .nfcImgContainer #qrcodeImgId{
+        height: 100% !important;
+    }
+    .sliderContainer .sliderBottom .slideButtons .showB {
+        margin: 2% 0 0% 11%;
+        font-size: 200%;
+    }
+    .sliderContainer .sliderBottom .slideButtons .hideB {
+        margin: 2% 0 0% 5%;
+        font-size: 200%;
+    }
+    .sliderContainer .sliderBottom .slideButtons .close {
+        font-size: 230% !important;
+
+    }
+    .arrow-Right {
+        border-width: 0 46px 46px 0 ! important;
+    }
+    .arrow-Left {
+        border-width: 46px 46px 0 0 ! important;
+    }
+    .arrow-bottom {
+        border-left: 20px solid transparent;
+        border-right: 20px solid transparent;
+        border-top: 20px solid #6093be;
+    }
+
+    #initialLogin .initialTextContainer .initialText {
+        font-size: 130%;
+    }
+
+    #initialLogin .logintextBox {
+        font-size: 130%;
+    }
+
+    #initialLogin #startBtnContainer .Btn {
+        font-size: 180% !important;
+    }
+
+    .ncContainer .ncContentWrapper .ncText {
+        font-size: 120%;
+    }
+
+    .commonBk .nC {
+        padding: 70% 0 0 0 !important;
+    }
+
+    .commonBk .historyContainer .hC{
+        padding: 28% 0 5% 0;
+    }
+
+    .historyContainer {
+        width: 100%;
+    }
+
+    .popup {
+        top: 15%;
+    }
+
+    .popup .popupTitle {
+        font-size: 255%;
+    }
+
+    .popup .popupFooter {
+        font-size: 220%;
+    }
+
+    .popup1 {
+        top: 15%;
+    }
+
+    .popup1 .popupTitle {
+        font-size: 255%;
+    }
+
+    .popup1 .popupFooter {
+        font-size: 220%;
+    }
+
+    #navlist, #navlist a, #navlist a:visited {
+        font-size: 210%;
+    }
+
+    #enavlist input {
+        padding: 1.5% 0 1.5% 2%;
+    }
+
+    #exitnavlist,#exitnavlist a,#exitnavlist a:visited {
+        font-size: 210%;
+    }
+
+    #cnavlist {
+        font-size: 210%;
+    }
+
+    .editusernamepopup .epopupTitle {
+        font-size: 240%!important;
+    }
+
+    .editusernamepopup #enavlist {
+        font-size: 210%;
+    }
+
+    .editusernamepopup .popupFooter1 {
+        font-size: 150%;
+    }
+
+    .controlbgmPopup .cpopupTitle {
+        font-size: 240%!important;
+    }
+
+    .controlbgmPopup .controlbgmPopup #cnavlist {
+        font-size: 210%;
+    }
+
+    .controlbgmPopup .cpopupFooter {
+        font-size: 210%;
+    }
+
+    #DyanamicInputDiv #errorNavlist,#errorNavlist {
+        font-size: 210%;
+    }
+
+    #DyanamicInputDiv .errorPopup .errorPopupFooter {
+        font-size: 150%;
+        width: 26%;
+        margin-left: 37%;
+        padding: 3% 0;
+
+    }
+
+    #DyanamicInputDiv  #errorNavlistClose,#errorNavlistClose {
+        font-size: 210%;
+    }
+
+    #DyanamicInputDiv  .errorPopupClose .errorPopupFooterClose {
+        font-size: 150%;
+    }
+
+    #DyanamicInputDiv  #errorNavlistClose .landscapeText {
+        font-size: 240% important;
+    }
+
+    #DyanamicInputDiv #errorNavlist .errorText {
+        font-size: 110% !important;
+        margin: 2% 2% 0 10%!important;
+        padding-bottom: 0% !important;
+    }
+    .exitPopup .exitPopupTitle {
+        font-size: 240%;
+    }
+
+    .exitPopup .exitPopupFooter {
+        font-size: 150%;
+    }
+    #DyanamicInputDiv  #errorNavlistClose .errorTextClose {
+        margin: 0 !important;
+        font-size: 120%;
+        padding-bottom: 0%;
+        width: 100%;
+    }
+    #DyanamicInputDiv  #errorNavlistClose{
+        padding: 5% !important;
+    }
+    #exitnavlist,#exitnavlist a,#exitnavlist a:visited {
+        font-size: 210%;
+    }
+
+    .exitPopup .popupFooter1 {
+        font-size: 150%;
+    }
+
+    #navlist,#navlist a,#navlist a:visited {
+        font-size: 210%;
+    }
+
+    .optionTab {
+        font-size: 150%;
+    }
+
+    .historyContainer .historyText {
+        font-size: 100%;
+    }
+
+    .loadingImg {
+        width: 25%;
+    }
+
+    .loaderpop .loaderpopupContent {
+        margin-top: 45%;
+    }
+    .sliderContainer .sliderBottom .slideButtons .show-hide {
+        width: 98%;
+        padding: 7% 0% !important;
+    }
+    .inner .nfcImgTwo .inm1 {
+        margin-top: 0%;
+    }
+    .slider{
+        height: 55%;
+    }
+    .inner h1 {
+        font-size: 250%;
+    }
+
+    .inner h2 {
+        font-size: 200%;
+    }
+
+    .inner aside.text {
+        font-size: 160%;
+    }
+
+    .inner aside.url {
+        font-size: 160%;
+    }
+
+    .tutPopup .tutPopupTitle .head {
+        font-size: 275%;
+        top: 3%;
+        left: 3%;
+    }
+
+    .tutPopup .tutPopupTitle .text1 {
+        font-size: 165%;
+        top: 17.5%;
+    }
+
+    .tutPopup .tutPopupTitle .text2 {
+        font-size: 165%;
+        top: 22.5%;
+    }
+
+    .tutPopup .tutPopupTitle .text3 {
+        font-size: 165%;
+        top: 28%;
+    }
+
+    .tutPopup .tutPopupTitle .text4 {
+        font-size: 165%;
+        top: 58%;
+    }
+
+    .tutPopup .tutPopupTitle .text5 {
+        font-size: 165%;
+        top: 79%;
+    }
+    #inviteNewGuest h1 {
+        font-size: 370%;
+    }
+    #inviteNewGuest h2, #networkName, #password{
+        font-size: 220% !important;
+    }
+    #inviteNewGuest .nfcImgContainer #urlId {
+        font-size: 220% !important;
+    }
+}
+
+
+@media screen and (device-width: 320px){
+    #inviteNewGuest h2 {
+        font-size: 110%;
+        padding: 2% 0 2% 5%;
+        line-height: 150%;
+    }
+    #inviteNewGuest #networkName {
+        font-size: 110%;
+    }
+    #inviteNewGuest .nfcImgContainer #urlId {
+        font-size: 110% !important;
+    }
+    .initialLogo .logo {
+        font-size: 120%;
+    }
+    #editNickName h1, #exitPartyShareDialog h1,#saveContentDialog h1{
+        font-size: 100%;
+    }
+    #editNickName h2, #exitPartyShareDialog h2,#saveContentDialog h2{
+        font-size: 90%;
+    }
+    #editNickName div input{
+        font-size: 90% !important;
+    }
+    .closeInviteNewGuest div, .hideBtn div, .showBtn div, #dialogOk, #dialogCancel, #saveContentBtnCancel, #saveContentBtnOk, #exitPartyShareBtnCancel, #exitPartyShareBtnOk {
+        font-size: 80%;
+    }
+    #tutorialText{
+        font-size: 100%;
+    }
+    #optionMenuFirstItem, #musicListHeader-text {
+        font-size: 120% !important;
+    }
+    .optionMenuItem {
+        font-size: 100%;
+    }
+    #tilteContainer{
+        height: 1.5em;
+    }
+
+    img.imgIconTV {
+        width: 20%;
+    }
+    .arrow-Right{
+        border-width: 0 16px 16px 0 !important;
+    }
+    .arrow-Left {
+        border-width: 16px 16px 0 0 ! important;
+    }
+    arrow-bottom {
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-top: 10px solid #6093be;
+    }
+    #initialLogin #startBtnContainer .Btn {
+        font-size: 100% !important;
+        padding: 6% 0;
+    }
+    #initialLogin #startBtnContainer {
+        margin-bottom: 5%;
+    }
+    #initialLogin {
+        bottom: 5% !important;
+    }
+
+    #initialLogin .initialTextContainer .initialText {
+        margin: 3% 0 5% 0 !important;
+    }
+
+    #initialLogin .initialTextContainer .initialText {
+        line-height: 135%;
+    }
+
+    .commonBk .nC {
+        padding: 70% 0 0 0;
+    }
+
+    .gallery #wrapper .tlImg {
+        height: 140%;
+    }
+
+    .historyContainer {
+        width: 100%;
+    }
+
+    .commonBk .historyContainer .hC{
+        padding: 30% 0 5% 0;
+    }
+
+    .throwB {
+        width: 20%;
+    }
+
+    .throwButton {
+        width: 20%;
+    }
+
+    .throwButtonGlow {
+        width: 20%;
+    }
+
+    .loadingImg {
+        width: 20%;
+    }
+
+    .popup {
+        top: 16% !important;
+    }
+
+
+    .popup .popupTitle {
+        font-size: 155%;
+    }
+
+    .popup .popupFooter {
+        font-size: 120%;
+    }
+
+    .popup1 {
+        top: 16% !important;
+    }
+
+
+    .popup1 .popupTitle {
+        font-size: 155%;
+    }
+
+    .popup1 .popupFooter {
+        font-size: 120%;
+    }
+
+    #navlist,#navlist a,#navlist a:visited {
+        font-size: 110%;
+    }
+
+    #exitnavlist,#exitnavlist a,#exitnavlist a:visited {
+        font-size: 110%;
+    }
+
+    #navlist input {
+        width: 83%;
+        height: 10%;
+    }
+
+    .commonBk .nC {
+        padding: 59% 0 0 0;
+    }
+
+    .editusernamepopup .epopupTitle {
+        font-size: 140%;
+    }
+
+    #cnavlist {
+        font-size: 110%;
+    }
+
+    .historyContainer .historyText {
+        font-size: 70%;
+    }
+
+    .historyHeader .headerBtn {
+        font-size: 80%;
+    }
+
+    .sliderBottom .slideSelectors {
+        padding: 0 0 1% 2.5%;
+    }
+
+    .inner h1 {
+        font-size: 130%;
+        padding: 4% 0;
+    }
+
+    .inner h2 {
+        font-size: 100%;
+        padding: 0 0 3%;
+    }
+
+    .inner .inm {
+        width: 75%;
+    }
+
+    .inner aside.text {
+        font-size: 95%;
+        padding: 1% 0 1%;
+    }
+
+    .inner aside.url {
+        font-size: 95%;
+        line-height: 125%;
+        padding: 3% 1% 5% 0;
+    }
+
+    .sliderBottom .slideSelectors .item {
+        -webkit-border-radius: 15px !important;
+        -moz-border-radius: 15px !important;
+        border-radius: 15px !important;
+    }
+
+    .sliderBottom .slideSelectors .selected {
+        -webkit-border-radius: 15px !important;
+        -moz-border-radius: 15px !important;
+        border-radius: 15px !important;
+    }
+
+    .sliderContainer .sliderBottom {
+        height: 26%;
+    }
+
+    .inner .inm2 {
+        width: 75%;
+    }
+
+    .inner .stepTwoContainer aside.text {
+        font-size: 95%;
+        line-height: 110%;
+    }
+    .initialBackground {
+        background-image: url(../images/initial-bk-320.png) !important;
+    }
+
+}
+
+@media (max-height: 580px)
+{
+    .inner .nfcImgContainer {
+        width: 26%;
+        height: 50%;
+        margin-right: 5%;
+    }
+    .inner .nfcImgContainer #qrcodeImgId{
+        height: 100% !important;
+    }
+    .arrow-bottom {
+        border-left: 12px solid transparent;
+        border-right: 12px solid transparent;
+        border-top: 12px solid #6093be;
+    }
+}

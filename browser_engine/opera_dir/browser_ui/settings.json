@@ -1,0 +1,45 @@
+[
+  {
+    "accessibility_mode": false,
+    "custom_error_pages":
+    [
+        "file://CUSTOM_ERROR_PAGE.html"
+    ],
+    "top_margin_height": 5,
+    "tabs_limit": 10,
+    "bookmarks_limit": 30,
+    "bookmark_url_limit": -1,
+    "bookmark_title_limit": -1,
+    "gui_text_size": 1,
+    "speeddials_limit": 30,
+    "speeddial_url_limit": -1,
+    "speeddial_title_limit": -1,
+    "history_limit": -1,
+    "history_url_limit": -1,
+    "history_title_limit": -1,
+    "show_thumbnails_in_tabs": true,
+    "show_thumbnails_in_bookmarks": true,
+    "show_thumbnails_in_speeddials": true,
+    "thumbnail_cache_limit": 100,
+    "thumbnail_surface_width": 1280,
+    "thumbnail_surface_height": 720,
+    "how_long_wait_for_longpress": 200,
+    "text_select_supported": true,
+    "longpress_enabled": true,
+    "longpress_acceleration_speed": 3,
+    "scroll_margin": 20,
+    "mouse_step": 10,
+    "scroll_step": 50,
+    "keys":
+    {
+        "VK_BROWSER_URL_BAR": 116,
+        "VK_BROWSER_OPTIONS": [117, 462],
+        "VK_BROWSER_ZOOM_IN": 118,
+        "VK_BROWSER_ZOOM_OUT": 119,
+        "VK_BROWSER_HISTORY_BACK": 120,
+        "VK_BROWSER_HISTORY_FORWARD": 121,
+        "VK_BROWSER_TAB_NEXT": 107,
+        "VK_BROWSER_TAB_PREV": 109
+    }
+  }
+]

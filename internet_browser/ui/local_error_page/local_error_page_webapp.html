@@ -1,0 +1,141 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Exit Dilog</title>
+<style type="text/css">
+#font
+{
+	color:white;
+	font-size:23px;
+}
+#fontURL, #fontNetwork, #fontLAN
+{
+	color:white;
+	font-size:17px;
+}
+body
+{
+background-color: transparent
+}
+#Exit, #Reload
+{
+    width: 124px;
+	height: 46px;
+	margin: 0 0;
+	padding: 0px;
+	border:0px;
+	color:white;
+	background: url("../../img/error_page_dialog/bm_dlg_button_n.png") no-repeat;
+}
+#dialog
+{	
+    width: 452px;
+	top:0px;
+    left: 0px;
+    right: 0px; 
+	position:absolute;
+	
+}
+#Exit:hover, #Reload:hover
+{
+    background: url("../../img/error_page_dialog/bm_dlg_button_hi.png") no-repeat;
+}
+</style>
+
+<script type="text/javascript">
+
+
+var buttonPosition=0;
+var exitButton = document.getElementById("Exit");
+var reloadButton = document.getElementById("Reload");
+function onReloadbutton()
+{
+	operaController.reload();
+	operaController.exit_window('exitDialogWindow');
+}
+function keyDown(event)
+{
+	var exitButton = document.getElementById("Exit");
+	var reloadButton = document.getElementById("Reload");
+	if (event.keyCode==13)//enter key down
+    {
+        switch (buttonPosition)
+        {
+        case 1://exit button
+            operaController.exit();
+            break;
+        case 2://reload button
+            onReloadbutton();
+            break;
+        }
+    }
+    if (event.keyCode==37)//left key down
+    {
+        switch (buttonPosition)
+        {
+        case 1:
+            break;
+        case 2:
+            buttonPosition--;
+            exitButton.style.background = "url('../../img/error_page_dialog/bm_dlg_button_hi.png') no-repeat";
+            reloadButton.style.background = "url('../../img/error_page_dialog/bm_dlg_button.png') no-repeat";
+            break;
+        }
+    }
+    if (event.keyCode==39)//right key down
+    {
+        switch (buttonPosition)
+        {
+        case 1:
+            buttonPosition++;
+            exitButton.style.background = "url('../../img/error_page_dialog/bm_dlg_button.png') no-repeat";
+            reloadButton.style.background = "url('../../img/error_page_dialog/bm_dlg_button_hi.png') no-repeat";
+            break;
+        case 2:
+            break;
+        }
+    }
+}
+function init()
+{
+	var exitButton = document.getElementById("Exit");
+	var reloadButton = document.getElementById("Reload");
+	buttonPosition = 2;
+	document.onkeydown = keyDown;
+	exitButton.style.background = "url('../../img/error_page_dialog/bm_dlg_button.png') no-repeat";
+    reloadButton.style.background = "url('../../img/error_page_dialog/bm_dlg_button_hi.png') no-repeat";
+    reloadButton.focus();
+}
+</script>
+</head>
+
+<body onload="init();">
+<object type="application/opera-controller" id="operaController"></object>
+<div id="dialog">
+ <table width="100%" border="0" cellpadding="0" height="223px" cellspacing="4" background="../../img/error_page_dialog/bm_dlg_bg_1.png">
+
+    <tr>
+      <td align="center" id="font"><strong>This page display failed.</strong></td>
+    </tr>
+    <tr>
+      <td align="center" id="font">Please check the following items:</td>
+    </tr>
+    <tr>
+      <td align="left" id="fontURL">&nbsp&nbsp&nbsp&nbsp&nbsp-Is URL correct?</td>
+    </tr>
+    <tr>
+      <td align="left" id="fontNetwork">&nbsp&nbsp&nbsp&nbsp&nbsp-Is Network setttings correct?</td>
+    </tr>
+    <tr>
+      <td align="left" id="fontLAN">&nbsp&nbsp&nbsp&nbsp&nbsp-Is LAN cable connected?</td>
+    </tr>
+    <tr>
+      <td colspan="2" align="center">
+          <input type="button" id="Exit" value="Exit" onmouseover="MouseOver(event);" onclick="operaController.exit();" />
+          <input type="button" id="Reload" value="Reload" onmouseover="MouseOver(event);" onclick="operaController.reload();"  />
+	  </td>
+ </table>
+ </div>
+</body>
+</html>

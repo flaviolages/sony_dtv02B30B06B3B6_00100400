@@ -1,0 +1,47 @@
+DFB key map to qt key  ######## about key value please check direcfb_keyboard.h and qt help document,eng every with "enter key"
+0x0006f008->0x010000f1  // BTN_TOOLS      , Qt::Key_Tools
+0x0009f000->0x01000080  // BTN_PLAY       , Qt::Key_MediaPlay	  ???? not Qt::Key_Favorites
+0x0009f001->0x01000085  // BTN_PAUSE      , Qt::Key_MediaPause
+0x0009f002->0x01000081  // BTN_STOP       , Qt::Key_MediaStop        ??? not Qt::Key_Eject
+0x0009f00d->0x01000086  // BTN_PLAY_PAUSE , Qt::Key_MediaTogglePlayPause
+0x0009f00a->0x01000082  // BTN_SR         , Qt::Key_MediaPrevious
+0x0009f009->0x01000083  // BTN_SF         , Qt::Key_MediaNext
+0x0009f005->0x01000083  // BTN_NEXT       , Qt::Key_MediaNext  //repeat 
+0x0009f008->0x010000c3  // BTN_FR         , Qt::Key_Finance
+0x0009f007->0x01000047  // BTN_FF         , Qt::Key_F24
+0x0005f01a->0x01020001  // BTN_CC         , Qt::Key_Cancel
+0x0005f01c->0x01020004  // BTN_SLEEP      , Qt::Key_Sleep
+0x0001f004->0x0000002e  // BTN_DIGIT_DOT  , Qt::Key_Period
+0x0001f00f->0x01000046  // BTN_DISPLAY    , Qt::Key_F23
+0x0004f004->0x01000051  // BTN_RETURN     , Qt::Key_F34           ???? not Qt::Key_Menu   
+0x0004f000->0x01000004  // BTN_SELECT     , Qt::Key_Return
+0x0004f003->0x01000005  // BTN_ENTER      , Qt::Key_Enter  ??? not Qt::key_Return
+0x1008f001->0x01000055  //DFP_FP_BTN_MENU , Qt::Key_Menu
+0x1006f000->0x010000b7  //DFP_BTN_POWER   , Qt::Key_PowerOff
+0x1005f000->0x01000013  //DFB_FP_BTN_PRG_UP , Qt::Key_Up
+0x1005f001->0x01000015  //DFB_FP_BTN_PRG_DOWN, Qt::Key_Down
+0x1006f000->0x01000014  //DFB_FP_BTN_VOL_UP   , Qt::Key_Right
+0x1006f001->0x01000012  //DFB_FP_BTN_VOL_DOWN , Qt::Key_Left
+0x1005f01f->0x01000036  //DFB_FP_BTN_INPUT_SRC, Qt::Key_F7
+0x1004f001->0x01000000  //DFB_FP_BTN_INPUT_EXIT, Qt::Key_Escape
+0x0008f004->0x0100003c  // BTN_TEXT       , Qt::Key_F13
+0x0007f005->0x0100003d  // BTN_SIZE       , Qt::Key_F14
+0x000bf01d->0x01000041  // BTN_CUSTOM_6   , Qt::Key_F18
+0x000bf085->0x01000016  // BTN_CUSTOM_93  , Qt::Key_PageUp    
+0x000bf092->0x01000016  // BTN_CUSTOM_106 , Qt::Key_PageUp
+0x000bf04a->0x01000016  // BTN_CUSTOM_35  , Qt::Key_PageUp
+0x000bf047->0x0100004a  // BTN_CUSTOM_32  , Qt::Key_F27
+0x000bf079->0x0100004c  // BTN_CUSTOM_81  , Qt::Key_F29
+0x000bf022->0x01000007  // BTN_CUSTOM_11  , Qt::Key_Delete
+0x000bf000->0x01000021  // BTN_RED        , Qt::Key_Menu
+0x000bf001->0x01000023  // BTN_GREEN      , Qt::Key_Alt
+0x000bf002->0x01000020  // BTN_YELLOW     , Qt::Key_Shift
+0x000bf003->0x01000022  // BTN_BLUE       , Qt::Key_Meta
+0x0005f020->0x01000050  // BTN_TV         , Qt::Key_F33
+0x0005f01f->0x01000036  // BTN_INPUT_SRC  , Qt::Key_F7
+0x0005f01b->0x01000033  // BTN_ADD_ERASE  , Qt::Key_F4
+0x0005f002->0x01000034  // BTN_PREV_PRG   , Qt::Key_F5
+0x0005f00f->0x01000035  // BTN_PIP_POP    , Qt::Key_F6
+0x0005f00c->0x01000037  // BTN_PIP_POS    , Qt::Key_F8
+0x0005f015->0x01000038  // BTN_ASPECT     , Qt::Key_F9
+//you can use // to mak a keymap // add byxingxing qt4.8.3_dfb153

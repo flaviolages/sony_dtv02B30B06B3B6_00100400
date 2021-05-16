@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Exit Dilog</title>
+<style type="text/css">
+#font
+{
+	color:white;
+	font-size:23px;
+}
+
+body
+{
+background-color: transparent
+}
+#Exit, #Cancel
+{
+    width: 124px;
+	height: 46px;
+	margin: 0 0;
+	padding: 0px;
+	border:0px;
+	color:white;
+	background: url("../../img/exit_dialog/bm_dlg_button_n.png") no-repeat;
+}
+#dialog
+{	
+    width: 452px;
+		top:0px;
+    left: 0px;
+    right: 0px; 
+		position:absolute;
+	
+}
+#Exit:hover, #Cancel:hover
+{
+    background: url("../../img/exit_dialog/bm_dlg_button_hi.png") no-repeat;
+}
+</style>
+
+<script type="text/javascript">
+function init()
+{
+	document.getElementById('Cancel').style.background = "url('../../img/exit_dialog/bm_dlg_button_hi.png') no-repeat";
+	document.getElementById('Cancel').focus();
+	document.keydown = KeyDown;
+}
+var curPos = 2;
+function KeyDown(event)
+{
+	if (event.keyCode==37)//left key down
+    {
+        switch (curPos)
+        {
+        case 1:
+            break;
+        case 2:
+            curPos--;
+            document.getElementById('Exit').style.background = "url('../../img/exit_dialog/bm_dlg_button_hi.png') no-repeat";
+            document.getElementById('Cancel').style.background = "url('../../img/exit_dialog/bm_dlg_button_n.png') no-repeat";
+            break;
+        }
+    }
+    else if (event.keyCode==39)
+    {
+        switch (curPos)
+        {
+        case 1:
+            curPos++;
+            document.getElementById('Exit').style.background = "url('../../img/exit_dialog/bm_dlg_button_n.png') no-repeat";
+            document.getElementById('Cancel').style.background = "url('../../img/exit_dialog/bm_dlg_button_hi.png') no-repeat";
+            break;
+        case 2:
+            break;
+        }
+    }
+}
+function clearChooseWindow()
+{
+	//curPos = 2;
+    document.getElementById('Exit').style.background = "url('../../img/exit_dialog/bm_dlg_button_n.png') no-repeat";
+    document.getElementById('Cancel').style.background = "url('../../img/exit_dialog/bm_dlg_button_hi.png') no-repeat";
+    document.getElementById('Cancel').focus();
+}
+function MouseOver(event)
+{
+	var srcelement = event.currentTarget;
+    if (srcelement.id == "Cancel")
+    {
+        curPos = 2;
+        document.getElementById('Exit').style.background = "url('../../img/exit_dialog/bm_dlg_button_n.png') no-repeat";
+        document.getElementById('Cancel').style.background = "url('../../img/exit_dialog/bm_dlg_button_hi.png') no-repeat";
+    }
+    else if (srcelement.id == "Exit")
+    {
+        curPos = 1;
+        document.getElementById('Exit').style.background = "url('../../img/exit_dialog/bm_dlg_button_hi.png') no-repeat";
+        document.getElementById('Cancel').style.background = "url('../../img/exit_dialog/bm_dlg_button_n.png') no-repeat";
+    }
+}
+</script>
+
+
+</head>
+
+<body onload="init();">
+<object type="application/opera-controller" id="operaController"></object>
+<div id="dialog">
+ <table width="100%" height="223px" border="0" cellpadding="0" cellspacing="4" background="../../img/exit_dialog/bm_dlg_bg_1.png">
+
+    <tr>
+      <td align="center" id="font"><p><strong>Are you sure to exit?</strong></p></td>
+    </tr>
+
+ 	<tr>
+      <td colspan="2" align="center">
+          <input type="button" id="Exit" value="Exit" onmouseover="MouseOver(event);" onclick="operaController.exit();" />
+          <input type="button" id="Cancel" value="Cancel" onmouseover="MouseOver(event);" onclick="operaController.exit_window('exitDialogWindow');"  />
+	  </td>
+    </tr>
+ </table>
+ </div>
+</body>
+</html>

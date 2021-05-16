@@ -1,0 +1,50 @@
+// Copyright (C) 2013 Opera Software AS.  All rights reserved.
+//
+// Example configuration file for jsplugins permissions.
+// File format summary: [{plugin_id, permissions[{protocol, server, port}]}]
+
+// Copyright (C) 2013 Opera Software AS.  All rights reserved.
+//
+// Example configuration file for jsplugins.
+// File format in short: [{plugin_id, permissions[{protocol, server, port}]}]
+[
+  { "plugin_id": "controller.so", "permissions": [ { "protocol": "CALLBACK" } ] },
+  { "plugin_id": "AvodQosPlugin.so","permissions": [{ "protocol": "https", "server": "[ALL].amazon.com" }]},
+  { "plugin_id": "spotifyjsplugin.so",
+    	"permissions": [
+        	{ "protocol": "file", "server": "localhost", "port": "DEFAULT" },
+        	{ "protocol": "http", "server": "[ALL].spotify.s3.amazonaws.com" },
+        	{ "protocol": "https", "server": "[ALL].cloudfront.net" }
+    	]
+  }
+  ,
+  { "plugin_id": "libimtk_jsp.so",
+        "permissions": [
+            { "protocol": "CALLBACK" }
+        ]
+  }
+  ,
+{ "plugin_id": "flingoplugin.so",
+  "permissions": [
+  { "protocol": "http", "server": "hotlist.samba.tv" }
+  ]
+}
+,
+//  { "plugin_id": "libwebaudio_jsp.so",
+//        "permissions": [
+//            { "protocol": "CALLBACK" }
+//        ]
+//  }
+//,
+{ "plugin_id": "libceb.so",
+  "permissions": [
+  { "protocol": "CALLBACK" }
+  ]
+}
+,
+{ "plugin_id": "libsportal.so",
+  "permissions": [
+  { "protocol": "CALLBACK" }
+  ]
+}
+]

@@ -1,0 +1,149 @@
+.button {
+			position: absolute;
+			width: 46px;
+			height: 46px;
+		}
+		
+		#naviBg {
+		    position: absolute;
+			left: 0;
+			height:58;
+		}
+		
+		#addressBg1 {
+		    position: absolute;
+			left: 327;
+			height:36;
+			width: 60;
+		}
+		
+		#addressBg2 {
+		    position: absolute;
+			height:36;
+		}
+		
+		#icon_place {
+		    position: absolute;
+			height:36;
+width:28;
+		}
+		#addressBg3 {
+		    position: absolute;
+			height:36;
+			width: 8;
+		}
+		
+		/* Lay out the navigation bar with absolute positioning. Buttons with
+		two states occupy the same place, but one is always hidden.  */		
+		#greatWeb {
+			position: absolute;
+			left: 9px;
+			background: url("../../img/nav_window/brs_navi_icon_greatweb.png") no-repeat;
+		}
+
+		#back, #backDisabled {
+			left: 62px;
+		}
+
+		#back {
+			background-image: url("../../img/nav_window/brs_navi_icon_back.png");
+			visibility: hidden;
+		}
+
+
+		#backDisabled {
+			background-image: url("../../img/nav_window/brs_navi_icon_back_dis.png");
+			visibility: visible;
+		}
+
+
+		#fwd, #fwdDisabled {
+			left: 115px;
+		}
+
+		#fwd {
+			background-image: url("../../img/nav_window/brs_navi_icon_forward.png");
+			visibility: hidden;
+		}
+
+
+		#fwdDisabled {
+			background-image: url("../../img/nav_window/brs_navi_icon_forward_dis.png");
+			visibility: visible;
+		}
+
+
+		#reload, #stop {
+			left: 168px;
+		}
+		
+		#reload {
+			background-image: url("../../img/nav_window/brs_navi_icon_refresh.png");
+			visibility: visible;
+		}
+		
+		#stop {
+			background-image: url("../../img/nav_window/brs_navi_icon_cancel.png");
+			visibility: hidden;
+		}
+
+
+		#showBookmark {
+			left: 221px;
+		}
+
+		#showBookmark {
+		    background-image: url("../../img/nav_window/brs_navi_icon_favorit.png");
+			visibility: visible;
+		}
+
+
+		#addToBookmark , #addToBookmarkDisabled{
+			left: 274px;
+		}
+		
+		#addToBookmark {
+		    background-image: url("../../img/nav_window/brs_navi_icon_favoritadd.png");
+			visibility: hidden;
+		}
+		
+		#addToBookmarkDisabled {
+			background-image: url("../../img/nav_window/brs_navi_icon_favoritadd_dis.png");
+			visibility: visible;
+		}
+	
+		#addressbar {
+			position: absolute;
+			border:none;
+			padding: 0px 0px 0px 10px;
+			left: 333px;  /*the best is 335*/         
+			height: 36px;
+			color: black;
+			font-size: 22px;
+			font-family: Verdana, Arial, Helvetica, sans-serif; 
+			font-weight: 600;
+			/* Set favicon using background-image.  */
+			background-color: black;
+			background-image: url("../../img/nav_window/brs_navi_address_field_2.png");
+			background-repeat:repeat-x;
+			background-position: 2px 0px;
+		}
+
+		#goTo {
+		    background-image: url("../../img/nav_window/brs_navi_icon_Go.png");
+			visibility: hidden;
+		}
+		
+		#goToDisable {
+			background-image: url("../../img/nav_window/brs_navi_icon_Go_dis.png");
+			visibility: visible;
+		}
+
+		#close {
+			position: absolute;
+			left: 907px;
+			background-image: url("../../img/nav_window/brs_navi_icon_cancel.png");
+		}
+		
+		
+		

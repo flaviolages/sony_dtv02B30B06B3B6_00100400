@@ -1,0 +1,12 @@
+xmlfile=/basic/DockUI.xml
+prefix=/3rd/mtk_util/dockui
+font=/3rd/mtk_util/dockui/dockui_font.ttf
+slidetime=180
+vsynctime=16
+width=1280
+height=720
+fontwidth=30
+fontheight=24
+iconwidth=158
+iconheight=120
+margin=150

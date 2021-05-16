@@ -1,0 +1,502 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+    <title>Bookmark dialog</title>
+    <link rel="stylesheet" type="text/css" href="css/style960.css" id="cssid"/>
+	<script type="text/javascript" src="file://localhost/tmp/folder.js"></script>
+	<script type="text/javascript" src="file://localhost/tmp/bookmark.js"></script>
+    <script type="text/javascript">
+    //<![CDATA[
+    var action="ADD";
+    var type="ITEM";
+    var ID=0;
+    var crntFocus="add_item";	
+	function objItem(n,k,uuid1)
+	{
+	    //define object:link item
+	    this.name=n;
+	    this.link=k;
+    this.uuid=uuid1;
+	}//end of objItem()
+	function init()
+	{
+		 var css=document.getElementById("cssid");
+	     if(1920 == document.documentElement.clientWidth )
+	     {
+
+		  css.setAttribute("href","css/style1920.css");
+	    }
+	    else if(960 == document.documentElement.clientWidth)
+	    {
+
+		  css.setAttribute("href","css/style960.css");
+	    }
+	  
+	}
+
+	function objFolder(name, uuid)
+	{
+		this.name=name;
+		this.uuid=uuid;
+	}
+
+	function folderShow()
+	{
+		var strFolderStructor = "";
+		var arFolder = new Array();
+	
+		folderCreate(arFolder);					
+		 
+		for( i = 0 ; i < arFolder.length ; i++)
+		{			
+			strFolderStructor += "<option value=" + arFolder[i].uuid +">" ;
+			if(arFolder[i].name.length<=40)
+			{
+			   strFolderStructor +=arFolder[i].name;
+			}
+			else
+			{
+			   strFolderStructor +=arFolder[i].name.substring(0,40)+"...";       
+			 }
+			 			
+			strFolderStructor +="</option>";
+		}
+		
+		document.write(strFolderStructor);
+	} //end of treeShow()
+
+    function setInfo(theAction, theType, theID, theTitle, theUrl)
+    {
+        // Action
+        action=theAction;
+        // Type
+        type=theType;
+        // ID
+        ID=theID;
+
+        apply_change(theTitle, theUrl);
+    }
+    function commitBookmarkChange(event)
+    {
+    	//opera.postError('Enter commitBookmarkChange');
+        var bookmarkTitle;
+        var bookmarkUrl;				
+		event.currentTarget.style.backgroundImage="url(\"../../img/bookmark_dialog/bm_dlg_button_n.png\")";
+		var arTree = new Array();
+		treeCreate(arTree);
+		var arFolder = new Array();
+		folderCreate(arFolder);
+		//opera.postError('After folderCreate');
+		var existSameBK = 0;
+		var existIndex1 = 0;
+		var existIndex2 = 0;
+		var dimensionNum = 0;
+        if (action == "ADD")
+        {
+            if (type == "ITEM")
+            {
+                bookmarkTitle=document.getElementById("bookmarkTitle_ai");
+                bookmarkUrl=document.getElementById("bookmarkUrl_ai");
+
+				var bookmarkDest;
+
+				bookmarkDest=document.getElementById("bookmarkDest_ai");
+				ID = bookmarkDest.value;				
+			    for ( i = 0 ; i < arTree.length  ; i++)
+			    {
+			    	//opera.postError('i'+i);
+			    	if(arTree[i] instanceof Array)
+			    	{
+			    		for(j =0; j< arTree[i].length; j++)
+			    		{
+			    				//opera.postError('bookmarkTitle.value'+bookmarkTitle.value+'arTree['+i+']['+j+'].name'+arTree[i][j].name);
+				        	if (bookmarkTitle.value == arTree[i][j].name)
+				        	{
+				            	existSameBK = 1;
+				            	existIndex1 = i;
+				            	existIndex2 = j;
+				            	dimensionNum = 2;
+				            	//opera.postError('111 zbyzby existSameBK='+ existSameBK+'existIndex1='+existIndex1+'existIndex2='+existIndex2); 
+				        	}
+			        	}
+			        }
+			        else
+			        {
+			        	//opera.postError('bookmarkTitle.value'+bookmarkTitle.value+'arTree['+i+'].name'+arTree[i].name);
+						if (bookmarkTitle.value == arTree[i].name)
+			        	{
+			            	existSameBK = 1;
+			            	existIndex1 = i;
+			            	dimensionNum = 1;
+			            	//opera.postError('111 zbyzby existSameBK='+ existSameBK+'existIndex1='+existIndex1+'existIndex2='+existIndex2);
+			        	}
+			        }
+			    }
+			}
+            else if (type == "FOLDER")
+            {
+                bookmarkTitle=document.getElementById("bookmarkTitle_af");
+                for ( i = 0 ; i < arFolder.length  ; i++)
+			    {
+					//opera.postError('arFolder['+i+'].name'+arFolder[i].name);
+					if (bookmarkTitle.value == arFolder[i].name)
+			        {
+			            	existSameBK = 1;
+			            	existIndex1 = i;
+				            dimensionNum = 1;
+				            //opera.postError('111 zbyzby existSameBK='+ existSameBK+'existIndex1='+existIndex1+'existIndex2='+existIndex2);
+			        }
+			    	/*if(arTree[i] instanceof Array)
+			    	{
+			    		for(j =0; j< arTree[i].length; j++)
+			    		{
+			    				//opera.postError('bookmarkTitle.value'+bookmarkTitle.value+'arTree['+i+']['+j+'].name'+arTree[i][j].name);
+			        		if (bookmarkTitle.value == arTree[i][j].name)
+			        		{
+			            		existSameBK = 1;
+			            		existIndex1 = i;
+				            	existIndex2 = j;
+				            	dimensionNum = 2;
+				            	//opera.postError('111 zbyzby existSameBK='+ existSameBK+'existIndex1='+existIndex1+'existIndex2='+existIndex2);
+			        		}
+			        	}
+			        }
+			        else
+			        {
+			        	//opera.postError('bookmarkTitle.value'+bookmarkTitle.value+'arTree['+i+'].name'+arTree[i].name);
+						if (bookmarkTitle.value == arTree[i].name)
+			        	{
+			            	existSameBK = 1;
+			            	existIndex1 = i;
+				            dimensionNum = 1;
+				            //opera.postError('111 zbyzby existSameBK='+ existSameBK+'existIndex1='+existIndex1+'existIndex2='+existIndex2);
+			        	}
+			        }*/
+			        
+			    }
+            }
+        }
+        else if (action == "SET")
+        {
+            if (type == "ITEM")
+            {
+                bookmarkTitle=document.getElementById("bookmarkTitle_ei");
+                bookmarkUrl=document.getElementById("bookmarkUrl_ei");
+            }
+            else if (type == "FOLDER")
+            {
+                bookmarkTitle=document.getElementById("bookmarkTitle_ef");
+            }
+        }
+        else if (action == "DEL")
+        {
+            if (type == "ITEM")
+            {
+                bookmarkTitle=document.getElementById("bookmarkTitle_di");
+                bookmarkUrl=document.getElementById("bookmarkUrl_di");
+            }
+            else if (type == "FOLDER")
+            {
+                bookmarkTitle=document.getElementById("bookmarkTitle_df");				
+            }
+        }	
+		if(existSameBK == 0)
+		{
+					//opera.postError('action='+action+'existSameBK='+existSameBK+'type='+ type+'bookmarkTitle.value='+bookmarkTitle.value+'ID='+ID);
+        if (type == "FOLDER")
+        {			
+            operaController.commitBookmarkChange(action, type, bookmarkTitle.value, "NO_VALUE", ID);
+        }
+		else
+		{
+				//opera.postError('bookmarkUrl.value='+bookmarkUrl.value);
+            operaController.commitBookmarkChange(action, type, bookmarkTitle.value, bookmarkUrl.value, ID);
+			}
+		}
+		else
+		{
+			action == "SET";
+			//opera.postError('action='+action+'existSameBK='+existSameBK+'type='+ type+'bookmarkTitle.value='+bookmarkTitle.value+'ID='+ID);
+			if(dimensionNum == 1)
+			{
+				if (type == "FOLDER")
+	        	{	
+	        		//opera.postError('arFolder['+existIndex1+'].name'+arFolder[existIndex1].name+'arFolder['+existIndex1+'].uuid'+arFolder[existIndex1].uuid);
+	           		operaController.commitBookmarkChange(action, type, arFolder[existIndex1].name, "NO_VALUE", arFolder[existIndex1].uuid);
+	        	}
+				else
+				{
+					//opera.postError('action='+action+'existSameBK='+existSameBK+'type='+ type+'bookmarkTitle.value='+bookmarkTitle.value+'ID='+ID);
+	            	operaController.commitBookmarkChange(action, type, arTree[existIndex1].name, arTree[existIndex1].link, arTree[existIndex1].uuid);
+				}
+			}else if(dimensionNum == 2)
+			{
+				if (type == "FOLDER")
+	        	{			
+	           		operaController.commitBookmarkChange(action, type, arTree[existIndex1][existIndex2].name, "NO_VALUE", arTree[existIndex1][existIndex2].uuid);
+	        	}
+				else
+				{
+	            	operaController.commitBookmarkChange(action, type, arTree[existIndex1][existIndex2].name, arTree[existIndex1][existIndex2].link, arTree[existIndex1][existIndex2].uuid);
+				}
+			}
+		}
+	}
+    function apply_change(theTitle, theUrl)
+    {
+        var newFocus;
+        var bookmarkTitle;
+        var bookmarkUrl;
+
+        if (action == "ADD")
+        {
+            if (type == "ITEM")
+            {
+                document.getElementById("add_item").style.display="inline";
+                bookmarkTitle=document.getElementById("bookmarkTitle_ai");
+                bookmarkUrl=document.getElementById("bookmarkUrl_ai");
+                newFocus = "add_item";
+            }
+            else if (type == "FOLDER")
+            {
+                document.getElementById("add_folder").style.display="inline";
+                bookmarkTitle=document.getElementById("bookmarkTitle_af");
+                newFocus = "add_folder";
+            }
+        }
+        else if (action == "SET")
+        {
+            if (type == "ITEM")
+            {
+                document.getElementById("edit_item").style.display="inline";
+                bookmarkTitle=document.getElementById("bookmarkTitle_ei");
+                bookmarkUrl=document.getElementById("bookmarkUrl_ei");
+                newFocus = "edit_item"
+            }
+            else if (type == "FOLDER")
+            {
+                document.getElementById("edit_folder").style.display="inline";
+                bookmarkTitle=document.getElementById("bookmarkTitle_ef");
+                newFocus = "edit_folder"
+            }
+        }
+        else if (action == "DEL")
+        {
+            if (type == "ITEM")
+            {
+                document.getElementById("del_item").style.display="inline";
+                bookmarkTitle=document.getElementById("bookmarkTitle_di");
+                bookmarkUrl=document.getElementById("bookmarkUrl_di");
+                newFocus = "del_item"
+            }
+            else if (type == "FOLDER")
+            {
+                document.getElementById("del_folder").style.display="inline";
+                bookmarkTitle=document.getElementById("bookmarkTitle_df");
+                newFocus = "del_folder"
+            }
+        }
+        // Title
+        
+        if(theTitle == "(null)")
+        {
+			bookmarkTitle.value = "";
+        }
+        else
+        {
+			 bookmarkTitle.value=theTitle;
+        }
+
+        if (type == "ITEM")
+        {
+            // URL
+            bookmarkUrl.value=theUrl;
+        }
+
+        if (crntFocus != newFocus)
+        {
+            document.getElementById(crntFocus).style.display="none";
+            crntFocus = newFocus;
+        }
+    }
+	
+	function focusOnTag(e)
+	{	
+	   e.currentTarget.style.backgroundImage="url(\"../../img/bookmark_dialog/bm_dlg_button_hi.png\")";
+	}
+	
+	function focusOutTag(e)
+	{	
+	   e.currentTarget.style.backgroundImage="url(\"../../img/bookmark_dialog/bm_dlg_button_n.png\")";
+	}
+	function buttononclick(event)
+	{
+		event.currentTarget.style.backgroundImage="url(\"../../img/bookmark_dialog/bm_dlg_button_n.png\")";
+		operaController.showBookmarkDialog('HIDE');
+	}
+    //]]>
+    </script>
+</head>
+<body onload="init();">
+<object type="application/opera-controller" id="operaController"></object>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div id="dialog" >
+<div id="add_item" style="display:none">
+  <table class="tb" id ="tb_add_item">
+    <tr>
+      <td align="left" valign="top">&nbsp;&nbsp;<img src="../../img/bookmark_dialog/bm_add_a_bookmark.png" class="td_img" /></td>
+      <td align="left"><p><strong>Add a bookmark</strong></p><p>Are you sure to add it?</p></td>
+    </tr>
+    <tr>
+    <td>Name:</td>
+    <td><input type="text" id="bookmarkTitle_ai" onfocus="this.select()"></input></td>
+    </tr>
+    <tr>
+    <td>URL:</td>
+    <td><input type="text" id="bookmarkUrl_ai" disabled="disabled"></input></td>
+    </tr>
+    <tr>
+    <td>Folder:</td>
+    <td>        
+        <select size="1" id="bookmarkDest_ai">
+		    <script language="javascript">folderShow();</script>
+        </select>
+    </td>
+    </tr>
+    <tr>
+      <td colspan="2" align="center">
+        <input type="button" id="Submit" value="Add"  onmousemove="focusOnTag(event)" onmouseout="focusOutTag(event)" onclick="commitBookmarkChange(event);">
+        <input type="button" id="Cancel" value="Cancel" onmousemove="focusOnTag(event)" onmouseout="focusOutTag(event)"  onclick="buttononclick(event);" />
+      </td>
+    </tr>
+  </table>
+</div>
+<div id="add_folder" style="display:none">
+  <table class="tb" id ="tb_add_folder">
+    <tr>
+      <td align="left" valign="top">&nbsp;&nbsp;<img src="../../img/bookmark_dialog/bm_add_a_bookmark.png" class="td_img" /></td>
+      <td align="left"><p><strong>Add a folder</strong></p><p>Are you sure to add it?</p></td>
+    </tr>
+    <tr>
+    <td>Name:</td>
+    <td><p>&nbsp;</p>
+        <input type="text" id="bookmarkTitle_af" onfocus="this.select()"></input>
+        <p>&nbsp; </p>
+    </td>
+    </tr>
+    <tr>
+      <td colspan="2" align="center">     
+        <input type="button" id="Submit" value="Add"  onmousemove="focusOnTag(event)" onmouseout="focusOutTag(event)" onclick="commitBookmarkChange(event);">
+        <input type="button" id="Cancel" value="Cancel"  onmousemove="focusOnTag(event)" onmouseout="focusOutTag(event)" onclick="buttononclick(event);" />
+      </td>
+    </tr>
+  </table>
+</div>
+<div id="del_item" style="display:none">
+  <table class="tb" id ="tb_del_item">
+    <tr>
+      <td align="left" valign="top">&nbsp;&nbsp;<img src="../../img/bookmark_dialog/bm_del_a_bookmark.png" class="td_img" /></td>
+      <td align="left"><p><strong>Delete this bookmark</strong></p><p>Are you sure to delete it?</p><p>&nbsp;</p></td>
+    </tr>
+    <tr>
+    <td>Name:</td>
+    <td><input type="text" id="bookmarkTitle_di" disabled="disabled"></input></td>
+    </tr>
+    <tr>
+    <td>URL:</td>
+    <td><input type="text" id="bookmarkUrl_di" disabled="disabled"></input></td>
+    </tr>
+    <tr>
+      <td colspan="2" align="center">
+        <p>&nbsp;</p>     
+        <input type="button" id="Submit" value="Delete"  onmousemove="focusOnTag(event)" onmouseout="focusOutTag(event)" onclick="commitBookmarkChange(event);">
+        <input type="button" id="Cancel" value="Cancel"  onmousemove="focusOnTag(event)" onmouseout="focusOutTag(event)" onclick="buttononclick(event);" />
+      </td>
+    </tr>
+  </table>
+</div>
+<div id="del_folder" style="display:none">
+  <table class="tb" id ="tb_del_folder">
+    <tr>
+      <td align="left" valign="top">&nbsp;&nbsp;<img src="../../img/bookmark_dialog/bm_del_a_bookmark.png" class="td_img" /></td>
+      <td align="left"><p><strong>Delete this folder</strong></p><p>Are you sure to delete it?</p></td>
+    </tr>
+    <tr>
+    <td>Name:</td>    
+    <td>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <input type="text" id="bookmarkTitle_df" disabled="disabled"></input>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    </td>
+    </tr>
+    <tr>
+      <td colspan="2" align="center">
+        <input type="button" id="Submit" value="Delete"  onmousemove="focusOnTag(event)" onmouseout="focusOutTag(event)" onclick="commitBookmarkChange(event);">
+        <input type="button" id="Cancel" value="Cancel"  onmousemove="focusOnTag(event)" onmouseout="focusOutTag(event)" onclick="buttononclick(event);" />
+      </td>
+    </tr>
+  </table>
+</div>
+<div id="edit_item" style="display:none">
+  <table class="tb" id ="tb_edit_item">
+    <tr>
+      <td align="left" valign="top">&nbsp;&nbsp;<img src="../../img/bookmark_dialog/bm_edit_a_bookmark.png" class="td_img" /></td>
+      <td align="left"><p><strong>Edit this bookmark</strong></p>
+      <p>Are you sure to edit it?</p><p>&nbsp;</p></td>
+    </tr>
+    <tr>
+    <td>Name:</td>
+    <td><input type="text" id="bookmarkTitle_ei" onfocus="this.select()"></input></td>
+    </tr>
+    <tr>
+    <td>URL:</td>
+    <td><input type="text" id="bookmarkUrl_ei" onfocus="this.select()"></input></td>
+    </tr>
+    <tr>
+      <td colspan="2" align="center"> 
+      	<p>&nbsp;</p>    
+        <input type="button" id="Submit" value="Edit"  onmousemove="focusOnTag(event)" onmouseout="focusOutTag(event)" onclick="commitBookmarkChange(event);">
+        <input type="button" id="Cancel" value="Cancel"  onmousemove="focusOnTag(event)" onmouseout="focusOutTag(event)" onclick="buttononclick(event);" />
+      </td>
+    </tr>
+  </table>
+</div>
+<div id="edit_folder" style="display:none">
+  <table class="tb" id ="tb_edit_folder">
+    <tr>
+      <td align="left" valign="top">&nbsp;&nbsp;<img src="../../img/bookmark_dialog/bm_edit_a_bookmark.png" class="td_img" /></td>
+      <td align="left"><p><strong>Edit this folder</strong></p>
+      <p>Are you sure to edit it?</p></td>
+    </tr>
+    <tr>
+    <td>Name:</td>
+    <td>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <input type="text" id="bookmarkTitle_ef" onfocus="this.select()"></input>
+	<p>&nbsp;</p>
+    <p>&nbsp;</p>
+    </td>
+    </tr>
+    <tr>
+      <td colspan="2" align="center">      
+        <input type="button" id="Submit" value="Edit" onmousemove="focusOnTag(event)" onmouseout="focusOutTag(event)"  onclick="commitBookmarkChange(event);">
+        <input type="button" id="Cancel" value="Cancel" onmousemove="focusOnTag(event)" onmouseout="focusOutTag(event)"  onclick="buttononclick(event);" />
+      </td>
+    </tr>
+  </table>
+</div>
+</div>
+</body>
+</html>

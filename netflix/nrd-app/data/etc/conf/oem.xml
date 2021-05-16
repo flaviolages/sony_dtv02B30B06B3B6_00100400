@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config_root>
+  <config_data>
+    <key_repeat_style>PRESS+RELEASE</key_repeat_style>
+    <surface_cache_capacity>28MB</surface_cache_capacity>
+    <disk_cache_capacity>12582912</disk_cache_capacity>
+	<disk_cache_write_limit>12582912</disk_cache_write_limit>
+    <disk_cache_path>/tmp/nf</disk_cache_path>
+    <capabilities>
+      <gibbon>
+        <splash>
+          <device>true</device>
+        </splash>
+      </gibbon>
+    </capabilities>
+  </config_data>
+</config_root>

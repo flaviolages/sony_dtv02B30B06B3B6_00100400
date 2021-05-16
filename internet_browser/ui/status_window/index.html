@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>loading</title>
+<style type="text/css">
+
+body {
+	background-color: transparent;
+	overflow: hidden;
+}
+		
+td {
+	color:white;
+}
+		
+</style>
+
+<script type="text/javascript">
+
+
+
+function setProgress(nProgress)
+{
+
+   msg = document.getElementById("statusMessage");
+   msg.firstChild.nodeValue=nProgress;
+  
+}
+
+function init()
+{   
+	msgelement = document.getElementById("statusMessage");
+   if(230 == document.documentElement.clientWidth )
+   {
+     msgelement.style.backgroundImage="url(\"../../img/status_window/Loading_1920.png\")";
+	   msgelement.style.width="192px" ;
+	   msgelement.style.height="192px" ;
+   }
+   else if(115 == document.documentElement.clientWidth)
+   {
+	 msgelement.style.backgroundImage="url(\"../../img/status_window/Loading_960.png\")";
+	 msgelement.style.width="96px" ;
+	 msgelement.style.height="96px" ;
+   }
+   
+}
+</script>
+</head>
+
+<body onload="init();">
+	<table align="center" cellpadding="0" cellspacing="0">
+    	<tr>
+		    <td id="statusMessage" align="center" >0</td>
+		</tr>
+	</table>
+ </body>
+</html>

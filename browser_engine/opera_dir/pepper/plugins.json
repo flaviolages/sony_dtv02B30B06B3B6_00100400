@@ -1,0 +1,25 @@
+[
+  {
+    "name" : "PPAPI Tests",
+    "file" : "libppapi_tests.so",
+    "description" : "Plugin used for running standard ppapi test suite",
+    "version" : "1.2.3",
+    "mime_types" : [
+      "application/x-ppapi-tests",
+    ],
+  },
+  {
+    "name" : "GLES Spinning cube example",
+    "file" : "libppapi_example_gles2_spinning_cube.so",
+    "mime_types" : [
+      "application/x-ppapi-example-gles2-spinning-cube",
+    ],
+  },
+  {
+    "name" : "Post message example",
+    "file" : "libppapi_example_post_message.so",
+    "mime_types" : [
+      "application/x-ppapi-post-message-example",
+    ],
+  },
+]

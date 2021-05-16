@@ -1,0 +1,64 @@
+body {
+    background: black url("../../img/bookmark_mngr/greatwebsite_bg_H.png") repeat-x;
+    overflow: hidden;
+	color: black;
+	border: 2;
+}
+#tb{
+   border:0;
+   width: 1632px;
+}
+
+#MySpan {
+		font-size:30px;
+    color:white;
+}
+
+#MySpan:hover {
+		font-size:30px;
+    color:yellow; 
+}
+
+Button
+{
+    background-image: url("../../img/bookmark_mngr/Topbutton_Nor.png");
+      display:inline-block;
+      line-height:108px;
+    width: 802px;
+	height: 108px;
+	border:none; 
+	color:white; 
+	font-size:40px; 
+	font-family:Arial, Helvetica, sans-serif;
+}
+
+Button:hover
+{
+    background-image: url("../../img/bookmark_mngr/Topbutton_hi.png");
+      display:inline-block;
+      line-height:108px;
+    width: 802px;
+	height: 108px;
+	border:none; 
+	color:yellow; 
+	font-size:40px; 
+	font-family:Arial, Helvetica, sans-serif;
+}
+
+Button:active
+{
+    background-image: url("../../img/bookmark_mngr/Topbutton_hi.png");
+      display:inline-block;
+      line-height:108px;
+      width: 802px;
+	height: 108px;
+	border:none; 
+	color:yellow; 
+	font-size:40px; 
+	font-family:Arial, Helvetica, sans-serif;
+}
+
+body
+{
+   overflow:auto;
+}

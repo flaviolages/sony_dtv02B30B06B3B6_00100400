@@ -1,0 +1,440 @@
+<!-- Copyright 2014 Sony Corporation -->
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <!-- no cache  -->
+        <meta http-equiv='cache-control' content='no-cache'>
+        <meta http-equiv='expires' content='0'>
+        <meta http-equiv='pragma' content='no-cache'>
+        <!-- ends -->
+        <title langcode="80409">Photo Sharing Plus</title>
+        <link href="css/jquery.notifyBar.css" rel="stylesheet" media="screen" type="text/css">
+        <link href="css/ps-stylesheet.css" rel="stylesheet" media="screen" type="text/css">
+        <script type="text/javascript" src="js/vendor/jquery-1.11.1.js"></script>
+        <script type="text/javascript" src="js/vendor/masonry.pkgd.min.js"></script>
+        <script type="text/javascript" src="js/vendor/id3-minimized.js"></script>
+        <script type="text/javascript" src="js/PartyShareMultilanguageSupport.js"></script>
+        <script type="text/javascript" src="js/PartyShareFileUpload.js"></script>
+        <script type="text/javascript" src="js/PartyShareSetNickName.js"></script>
+        <script type="text/javascript" src="js/vendor/uuid.js"></script>
+        <script type="text/javascript" src="js/vendor/iscroll.js"></script>
+        <script type="text/javascript" src="js/vendor/jquery.qrcode.js"></script>
+        <script type="text/javascript" src="js/vendor/qrcode.js"></script>
+        <script type="text/javascript" src="js/PartyShareErrorMessage.js"></script>
+        <script type="text/javascript" src="js/vendor/HashTable.js"></script>
+        <script type="text/javascript" src="js/PartyShareAjaxConnection.js"></script>
+        <script type="text/javascript" src="js/PartyShareCommonFunctions.js"></script>
+        <script type="text/javascript" src="js/PartyShareGetPhotoListXscript.js"></script>
+        <script type="text/javascript" src="js/PartyShareGetPhotoList.js"></script>
+        <script type="text/javascript" src="js/PartyShareControlXscript.js"></script>
+        <script type="text/javascript" src="js/PartyShareControlUI.js"></script>
+        <script type="text/javascript" src="js/PartyShareMonitoringScript.js"></script>
+        <script type="text/javascript" src="js/PartyShareGetMusicList.js"></script>
+        <script type="text/javascript" src="js/vendor/no-right-click.js"></script>
+        <script type="text/javascript" src="js/vendor/hash_string.js"></script>
+        <script type="text/javascript" src="js/PartyShareMasonryGrid.js"></script>
+        <script type="text/javascript" src="js/vendor/jquery.fileDownload.js"></script>
+        <script type="text/javascript" src="js/vendor/jquery.animate-enhanced.min.js"></script>
+    </head>
+
+    <body oncontextmenu="return false;"
+        onload="avoidReturnPrePage();
+            checkOrientation(false);
+            setUserNickName('SETNICKNAME');
+            startMonitorEvent(0);
+            GetNetworkName();
+            setImageContainerSize();
+//            getUserListCall();
+            getMusicList();
+            onLoadMusicList();
+            mTerminated = false;">
+        <div id="DyanamicLandscapDiv"></div>
+        <div id="mainDivId">
+            <!-- div is used to show error popup start -->
+            <div id="DyanamicInputDiv">
+            </div>
+            <!-- div is used to show error popup end -->
+            <!-- loader pop code starts-->
+            <div class="loaderpop" id="loader">
+                <div class="loaderpopupContent">
+                    <img id="loading" src="images/arr2.png" class="loadingImg" />
+                </div>
+            </div>
+            <!-- loader pop code ends-->
+            <!--Start Toast message-->
+            <div id="toastMessage" style="display: none;">
+                <div id="toastMessageText" langcode="81024">Transferring…</div>
+            </div>
+            <!--End Toast message-->
+            <!--Start  musicListPopup -->
+            <div id="popupMusicList" style="display:none;">
+                <div id= "musicListHeader">
+                    <div id="musicListHeader-text" langcode="80383">Music List</div>
+                </div>
+                <div id = "musicListScroll">
+                    <ul id ="list" >
+                    </ul>
+                </div>
+                <div id="btnAdd">
+                    <div id ="shareBottom" langcode="80398" onclick="javascript:setAudio('file');
+            FileSelectionEvent();">
+                        Share Music
+                    </div>
+                    <img id = "musicAddIcon" src="images/btAdd.png"/>
+                </div>
+                <div id="emptyItem" style="width:100%; height:20px; display:none;"></div>
+                <div class = "arrow-Left"></div>
+            </div>
+            <!-- End musicListPopup-->
+            <!-- Options Menu Starts -->
+            <div id="popupOptionMenu" style="display:none;">
+                <ul id ="optionMenuList">
+                    <li>
+                        <div id = "optionMenuFirstItem">
+                            <span  langcode="63762">Options</span>
+                        </div>
+                    </li>
+                    <li>
+                        <a class = "optionMenuItem" href="javascript:showHideOptionMenuPopup(); changeUserNickName();">
+                            <span  langcode="64349">Edit nickname</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class = "optionMenuItem" href="javascript:showHideOptionMenuPopup(); showHideExitPartySharePopup();">
+                            <span  langcode="64352">Exit Photo Sharing Plus</span>
+                        </a>
+                    </li>
+                    <div class = "arrow-Right"></div>
+                </ul>
+            </div>
+            <!-- Options popup end -->
+            <!-- Edit user name popup starts -->
+            <div id ="editNickName" style="display:none;">
+                <h1 id= "editNickNameTitle" langcode="64349">
+                    Edit nick name
+                </h1>
+                <h2 id= "editNickNameBody" langcode="64359">Edit your nick name</h2>
+                <div id = "editNickNameBoder">
+                    <input type="text" value="Enter your nickname" name="nameId" id="editNickNameId" maxlength="25"  onblur="validateChangeUserNickName(this);" langcode="64342" />
+                </div>
+                <div id= "dialogCancel" onclick="handleEditNickNameOpenClose();" langcode="51641">
+                    Cancel
+                </div>
+                <div id= "dialogOk" onclick="handleEditNickNameOpenClose();
+            setUserNickName('EDITNICKNAME');" langcode="3">
+                    Ok
+                </div>
+            </div>
+            <!-- Edit user name popup ends -->
+            <!-- Save content confirmation popup start -->
+            <div id="saveContentDialog" style="display:none;">
+                <div >
+                    <h1 langcode="80397">Save contents</h1>
+                </div>
+                <div>
+                    <h2 langcode="80397">Save contents</h2>
+                    <div id ="saveContentBtnCancel" langcode="51641" onclick =" showHideSaveContentPopup();">Cancel</div>
+                    <div id ="saveContentBtnOk" onclick ="showHideSaveContentPopup();
+            psMasonry.saveContent();" langcode="3"> Ok </div>
+                </div>
+            </div>
+            <!-- Save content confirmation popup end -->
+            <!-- Exit PartyShare popup starts -->
+            <div id="exitPartyShareDialog" style="display:none;">
+                <h1 langcode="64352"> Exit PartyShare </h1>
+                <h2 langcode="64537"> Are you sure to exit PartyShare? </h2>
+                <div id ="exitPartyShareBtnCancel" onclick = "showHideExitPartySharePopup();" langcode="51641">
+                    Cancel
+                </div>
+                <div id ="exitPartyShareBtnOk" onclick="showHideExitPartySharePopup();
+            closePartyShareApplication();" langcode="3"> Ok </div>
+            </div>
+            <!-- Exit PartyShare popup ends -->
+            <!--Tutorial popup -->
+            <div id="tutorialPopup" style="display: block;">
+                <div>
+                    <img onclick = "showHideTutorial();" id = "exitTutorial" src="images/exit-tut.png"/>
+                </div>
+                <div id="tutorialText" langcode="64363">Tap to select photo to throw</div>
+                <div class = "arrow-bottom"></div>
+            </div>
+            <div class="tutorialGreyLayer" onclick = "showHideTutorial();"></div>
+            <!-- Tutorial popup -->
+            <!-- Invite new member Screen Starts -->
+            <div class="sliderContainer" style="display:none;" id="InviteNewGuestId">
+                <div class="slider">
+                    <div class="inner">
+                        <h1 langcode="64316">Invite new guest</h1>
+                        <h2 langcode="64353">Step 1</h2>
+                        <img src="images/inm1.png" alt="Invite New Member" class="inm" />
+                        <aside class="text" id="textId11" langcode="63704">1. Connect to TV via Wi-Fi.</aside>
+                        <aside class="url" id="ssidWpaId"></aside>
+
+                    </div>
+                    <div class="inner">
+                        <h1 langcode="64316">Invite new guest</h1>
+                        <h2 langcode="64354">Step 2</h2>
+                        <div id ="nfcScroll">
+
+
+                            <div class="stepTwoContainer">
+                                <img src="images/inm2.png" alt="Invite New Member" class="inm2" />
+                                <aside class="text" langcode="64296">2. Open the start Photo Sharing Plus screen.</aside>
+                                <aside id="urlId" class="url left"></aside>
+                                <div class="nfcImgContainer">
+                                    <span id="qrcodeImgId"></span>
+                                </div>
+                                <div class="clearBoth"></div>
+                                <div class="nfcImgTwo">
+                                    <div style="width:30%; float:left"><img src="images/inm3.png" alt="Invite New Member" id="touchImageId" class="inm1" /></div>
+                                    <div style="width:60%; float:right">
+                                        <aside class="text" id="textId21" langcode="64309">
+                                            Your friend can access through one touch
+                                        </aside>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sliderBottom">
+                    <div class="slideButtons">
+                        <div class="showB">
+                            <a href="javascript:setQuickInvitationMode('shown');" name="" data-mini="true" type="button" class="Btn show-hide" langcode="64534" >
+                            </a>
+                        </div>
+                        <div class="hideB">
+                            <a href="javascript:setQuickInvitationMode('hidden');" data-mini="true" type="button" class="Btn show-hide" langcode="64535" >
+                            </a>
+                        </div>
+                        <div class="cancelInviteNewGuest">
+                            <a href="#" data-mini="true" type="button" class="Btn close" onclick="CloseInviteNewGuest();" langcode="4033">
+                                close
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- Invite new member  Screen Ends -->
+            <!--Invite Member Screen Start-->
+            <div id ="inviteNewGuest"  style="display:none;">
+                <h1 langcode="64316">Invite new guest</h1>
+                <h2 class="text" langcode="63704">1. Connect to TV via Wi-Fi.</h2>
+                <h2 id ="networkName"class="text" langcode="64308"></h2>
+                <h2 id ="" class="text" langcode="64296">2. Open the [%1] screen.</h2>
+                <div class="nfcImgContainer">
+                    <h2 id ="urlAddress" class="text" langcode=""></h2>
+                    <div id="qrcodeImg"></div>
+                </div>
+                <div id ="bottomInvite">
+                    <div id ="bottomBar">
+                        <div class="showBtn">
+                            <div onclick ="setQuickInvitationMode('shown');" langcode="64534" >
+                            </div>
+                        </div>
+                        <div class="hideBtn">
+                            <div onclick ="setQuickInvitationMode('hidden');" langcode="64535" >
+                            </div>
+                        </div>
+                        <div class="closeInviteNewGuest">
+                            <div href="#" onclick="CloseInviteNewGuest();" langcode="4033">
+                                close
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Invite Member Screen End-->
+            <div id="mainContainer">
+                <div id = "notifyBar" class="notification " onclick="slideUpClose();" langcode="64530">New Contents is Coming</div>
+                <!-- Timeline Screen Starts -->
+                <div class="commonBk">
+                    <div id="timeline" class="timeline">
+                        <!-- Image Gallery Starts -->
+                        <div id="tgContainer" class="tgContainer">
+                            <div class="gallery">
+                                <div id="wrapper">
+                                    <div id="scroller">
+                                        <div>
+                                            <div id="pullDown">
+                                                <span class="pullDownIcon pullIcon"></span><span class="pullDownLabel pullText" langcode="64545">Pull down to refresh</span>
+                                            </div>
+                                            <div id="timelineId" style="width:98%; margin: 0 auto">
+                                                <div id="masonry_container" name="masonry_container" class="masonry" data-masonry-options='{ "isFitWidth": true }'>
+                                                </div>
+                                            </div>
+
+                                            <div class="nC" style="display:none;">
+                                                <div id="getPhotoListBlank" class="ncContainer">
+                                                    <div class="ncContentWrapper">
+                                                        <span class="ncText" langcode="64344">Tap the button below to select a photo to share with guests.</span>
+                                                        <br>
+                                                        <br>
+                                                        <img src="images/arrow-down.png" class="ncImg" />
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Footer Starts -->
+                            <footer class="commonFooter" id="getPhotoListAll" style="display:none;">
+                                &nbsp;
+                            </footer>
+                            <!-- Footer Ends -->
+                        </div>
+                        <!-- Image Gallery Ends -->
+                    </div>
+                    <!-- Options popup ends -->
+                    <div class="clearBoth"></div>
+                </div>
+                <!-- Footer Bar Start -->
+                <div class="footerBackgroud"></div>
+                <div class="footerContent">
+                    <div style="position: relative; width: 100%; height: 100%;">
+                        <span id="shareBtnContainer" style="visibility: hidden; position:fixed">
+                            <form  name="form" id="formId" style="height: 0px; width: 0px; visibility:hidden;">
+                                <span id="span_file"><input type="file" name="source" id="file" onchange = "hidePopup('.popup1');
+                                    showMusicListIfSelectAudio();getLocalPhotos();" style="height: 0px;width: 0px;"></input></span>
+                                <input type="text" name="uuid" id="uuidval" style="height: 0px;width: 0px;"></input>
+                                <input type="text" name="orientation" id="orientationval" style="height: 0px;width: 0px;"></input>
+                            </form>
+                        </span>
+                        <a class = "left">
+                            <img id = "popupMusicListIcon" src="images/icon_music.png" class="inm mscBtn" alt=""/>
+                        </a>
+                        <a href="javascript:setVideoImage('file');FileSelectionEvent();">
+                            <img id = "addButtonImg" src="images/shareBtn.png" alt="PhotoShare Button" class="addBtn" />
+                        </a>
+                        <a class = "right">
+                            <img id="optionMenuIcon" src="images/icon_opt.png" class="opt optBtn"/>
+                        </a>
+                    </div>
+                </div>
+                <div class = "invitationIcon" onclick ="openInviteNewGuest();">
+                    <img src="images/invite.png" class="opt optBtn"/>
+                </div>
+                <!-- Footer Bar Ends -->
+            </div>
+            <!-- Timeline Screen Ends -->
+            <!-- Share UI starts -->
+            <div class="commonBk" id="display" Style="display:none">
+                <div class="historyContainer">
+                    <header class="historyHeader">
+                        <button class="headerBtn" onclick="ChangeDiv('mainContainer', 'display');" id="closebtn" langcode="4033">Close</button>
+                    </header>
+                    <!-- Image Gallery Starts -->
+                    <div class="hC">
+                        <section>
+                            <div class="imgContainer" id="shareImgContainer">
+                                <img src="images/video_frame.png" alt="Image" id="sharelargImg" class="historyImg imgShadow" />
+                                <div id="frameGrabs"></div>
+                            </div>
+                            <div class="historyText" id="FileNameTextId"></div>
+                        </section>
+                    </div>
+                    <div class="throwBContainer">
+                        <img src="images/throw.png" class="throwB" alt="Throw Button" id="throwiconblnk" onclick="fileUpload(document.getElementById('formId'), '/sony/contentshare/postphoto/', 'upload');
+            return false;" />
+                        <img class="throwButton" id="throwiconanim" src="images/throw_c.png" Style="display:none" />
+                        <img class="throwB" id="throwiconfinsh" src="images/throw_h.png" Style="display:none" />
+                    </div>
+                    <!-- Image Gallery Ends -->
+                </div>
+            </div>
+            <!-- Share UI Ends -->
+            <!-- History UI Screen Starts -->
+            <div class="fullBk" Style="display:none" id="historyId">
+                <div class="commonBk">
+                    <div class="historyContainer">
+                        <header class="historyHeader">
+                            <button class="headerBtn" onclick="backToTimeline();" id="historyBackButton" langcode="4033">Close</button>
+                        </header>
+                        <div class="hC">
+                            <section>
+                                <div class="imgContainer" id="historyImgContainer">
+                                    <img src="images/defaultPhoto.png" alt="Image" id="historyImg" class="history ImgimgShadow" />
+                                    <div id="hisFrameGrabs"></div>
+                                </div>
+                                <div class="historyText" id='historyTextId' langcode="64345">
+                                    Long-press the photo to save.
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+                <div class="throwBContainer">
+                    <img src="images/throw.png" class="throwB" alt="Throw Button" onclick="playPhotoContentMethod();" id="throwIconBlank" />
+                    <img class="throwButton throwB" src="images/throw_c.png" id="throwIconGlow" Style="display:none" />
+                    <img class="throwB" src="images/throw_h.png" id="throwIconBlink" Style="display:none" />
+                </div>
+            </div>
+            <!-- History Screen Ends -->
+        </div>
+        <script>
+        getLaunguageCode();
+        function setAudio(file) {
+            document.getElementById(file).accept = "audio/*";
+        }
+        function setVideoImage(file) {
+            if (isLinux) { // linux model is not support video
+                document.getElementById('file').accept = "image/*";
+            } else {
+                document.getElementById('file').accept = "video/*,image/*";
+            }
+        }
+        function showMusicListIfSelectAudio(){
+            if(document.getElementById("file").accept === "audio/*"){
+                showMusicListPopup();
+                clearTimeout(timmer);
+                closeMusicListByTimmer();
+            }
+        }
+        </script>
+        <script>
+            function doRemove(name) {
+                $(name).getNiceScroll().remove();
+            }
+
+            var vis = true;
+            function toggleVisibility() {
+                vis = !vis;
+                var ns = $("#list").getNiceScroll();
+                (vis) ? ns.show() : ns.hide();
+            }
+
+            $('#optionMenuIcon').on("click", function(e) {
+                showHideOptionMenuPopup();
+            });
+            $('#popupMusicListIcon').on("click", function(e) {
+                if (isMobile.iOS())
+                {
+                    $('#btnAdd').hide();
+                    if (countItemMusicList() === 0) {
+                        $('#emptyItem').show();
+                    } else {
+                        $('#emptyItem').hide();
+                    }
+                }
+                getMusicList();
+                createMusicListScroll();
+                showMusicListPopup();
+                musicScroll.refresh();
+                closeMusicListByTimmer();
+            });
+            function toggleDiv() {
+                var dv = $("#list");
+                var vv = (dv.css('display') != 'none');
+                (vv) ? dv.hide() : dv.show();
+            }
+        </script>
+    </body>
+</html>

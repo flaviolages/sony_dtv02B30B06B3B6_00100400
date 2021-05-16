@@ -1,0 +1,10 @@
+./rc.wlan
+sleep 5
+./wlanconfig ath0 create wlandev wifi0
+./iwpriv ath0 shortgi 1
+./iwpriv wifi0 ForBiasAuto 1
+./iwpriv wifi0 AMPDU 1
+./iwpriv wifi0 AMPDUFrames 32
+./iwpriv wifi0 AMPDULim 50000
+#if setup wpa_supplicant
+#./wpa_supplicant -dd -Dathr -iath0 -c wpa_supplicant.conf &
